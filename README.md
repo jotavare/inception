@@ -369,11 +369,11 @@ server {
 | In the ports section add       | `"443:443"`                                                          |
 
 #### Run Project Via HTTPS With GUI
-| Steps                          | Description                                                 |
-| ------------------------------ | ----------------------------------------------------------- |
-| Start Docker                   | `docker-compose up -d`                                      |
-| Start GUI                      | `sudo startx`                                               |
-| Open Firefox in VM             | Check the browser for self-signed certificate               |
-| Type the following URL         | `<intra_user>.42.fr`, `127.0.0.1`, or `<vm_ip_adress>`      |
+| Steps                          | Description                                                       |
+| ------------------------------ | ----------------------------------------------------------------- |
+| Start Docker                   | `cd ~/simple_docker_nginx_html/ && docker-compose up -d && cd ~/` |
+| Start GUI                      | `sudo startx`                                                     |
+| Open Firefox in VM             | Check the browser for self-signed certificate                     |
+| Type the following URL         | `<intra_user>.42.fr`, `127.0.0.1`, or `<vm_ip_adress>`            |
 
 ------
