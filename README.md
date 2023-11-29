@@ -188,15 +188,12 @@
 
 - - - -
 
-### STORING CONFIGURATION
-> [!NOTE]
-> Why is the below important? If something goes wrong in the future (believe me that it will), we can always restore a specific snapshot or download our configuration from the cloud.
-
+### SAVE THE CONFIGURATION
 #### Create Snapshot
 - Open the VirtualBox;
 - `Left Click` on top of the icon of your VM and choose `Snapshots`;
 - Click on `Take`;
-- Write a name like `Basic Inception Configuration` and a description for future reference;
+- Write a name for future reference;
 
 #### Save on Cloud
 - Go to the VirtualBox folder and compress the `Inception` folder;
@@ -204,9 +201,9 @@
 - Upload to the internet, usually 1-2 GB;
 
 #### Open on a Different PC
-- Find the main folder of VirtualBox;
-- Uncompress it inside;
-- Open VirtualBox and it should appear everything;
+- Find the main folder of VirtualBox virtual machines;
+- Uncompress the files inside the folder;
+- Open VirtualBox and everything should appear correctly;
 
 - - - -
 
