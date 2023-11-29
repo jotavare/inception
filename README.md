@@ -361,12 +361,12 @@ server {
 ```
 
 #### Reconfigure Docker YML File
-| Steps                          | Description                                                      |
-| ------------------------------ | ---------------------------------------------------------------- |
-| Stop Docker                    | `cd ~/simple_docker_nginx_html/ && docker-compose down && cd ~/` |
-| Edit Docker YML File           | `nano docker-compose.yml`                                        |
-| In the volume section add      | `/home/${USER}/project/srcs/requirements/tools:/etc/nginx/ssl`   |
-| In the ports section add       | `"443:443"`                                                      |
+| Steps                          | Description                                                          |
+| ------------------------------ | -------------------------------------------------------------------- |
+| Stop Docker                    | `cd ~/simple_docker_nginx_html/ && docker-compose down && cd ~/`     |
+| Edit Docker YML File           | `cd ~/simple_docker_nginx_html/ && nano docker-compose.yml && cd ~/` |
+| In the volume section add      | `/home/${USER}/project/srcs/requirements/tools:/etc/nginx/ssl`       |
+| In the ports section add       | `"443:443"`                                                          |
 
 #### Run Project Via HTTPS With GUI
 | Steps                          | Description                                                 |
