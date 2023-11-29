@@ -6,12 +6,12 @@
 
 ### CREATE A NEW VIRTUAL MACHINE
 #### Name and Operating System
-|                |                                 |
-| -------------- | ------------------------------- |
-| Name           | `Inception`                     |
-| Machine Folder | `/home/jotavare/VirtualBox VMs` |
-| Type           | `Linux`                         |
-| Version        | `Debian (64-bit)`               |
+|                |                                     |
+| -------------- | ----------------------------------- |
+| Name           | `Inception`                         |
+| Machine Folder | `/home/<intra_user>/VirtualBox VMs` |
+| Type           | `Linux`                             |
+| Version        | `Debian (64-bit)`                   |
 
 #### Memory Size
 - [x] `1024 MB` (4-8 GB RAM) or `4096 MB` (16 GB RAM or above)
