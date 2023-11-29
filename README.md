@@ -170,6 +170,7 @@
 | Open port 80 (http)      | `ufw allow 80`              |
 | Open port 443 (https)    | `ufw allow 443`             |
 | Close virtual machine    | `shutdown now`              |
+| Change virtual machine network adapter | `Settings` > `Network` > Change `NAT` to `Bridged Adapter` |
 
 #### Port Forwarding
 | Name    | Protocol | Host IP | Host Port | Guest IP | Guest Port |
