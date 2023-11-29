@@ -209,11 +209,11 @@
 
 ### PRE CONFIGURE DOCKER
 #### Sudo Configuration
-| Steps                            | Description                                      |
-| -------------------------------- | ------------------------------------------------ |
-| Open sudoers file                | `nano /etc/sudoers`                              |
-| Add user privilege specification | `<intra_user> ALL=(ALL:ALL) ALL`                 |
-| Save and exit                    | `Ctrl + X` > `Y` > `Enter`                       |
+| Steps                                      | Description                                      |
+| ------------------------------------------ | ------------------------------------------------ |
+| Open sudoers file                          | `nano /etc/sudoers`                              |
+| Under `# User privilege specification` add | `<intra_user> ALL=(ALL:ALL) ALL`                 |
+| Save and exit                              | `Ctrl + X` > `Y` > `Enter`                       |
 
 #### Add User to Docker Group
 | Steps                            | Description                                      |
