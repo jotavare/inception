@@ -326,7 +326,7 @@ curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep br
 | Steps                          | Description                                               |
 | ------------------------------ | --------------------------------------------------------- |
 | Edit Nginx Configuration       | `nano ~/simple_docker_nginx_html/nginx/conf.d/nginx.conf` |
-| Paste Configuration Code       | *(Refer to the provided configuration code bellow)*       |
+| Paste Configuration Code       | *(Copy and paste the provided configuration code bellow)* |
 
 ```bash
 server {
@@ -372,8 +372,8 @@ server {
 | Steps                          | Description                                                 |
 | ------------------------------ | ----------------------------------------------------------- |
 | Start Docker                   | `docker-compose up -d`                                      |
-| Start GUI                      | `startx`                                                    |
-| Open Firefox in VM             | Check the Browser Trust for Self-Signed Certificate         |
+| Start GUI                      | `sudo startx`                                               |
+| Open Firefox in VM             | Check the browser for self-signed certificate               |
 | Type the following URL         | `<intra_user>.42.fr`, `127.0.0.1`, or `<vm_ip_adress>`      |
 
 ------
