@@ -169,7 +169,7 @@
 
 ### PORT FORWARDING
 #### Configure SSH
-| Steps                                     | Command                                                        |
+|                                           |                                                                |
 | ----------------------------------------- | -------------------------------------------------------------- |
 | Edit sshd_config file                     | `nano /etc/ssh/sshd_config`                                    |
 | Change ssh port to 42                     | `#Port 22` to `Port 22` or `Port 42`                           |
@@ -178,14 +178,14 @@
 | Save and exit sshd_config file            | `Ctrl + X` > `Y` > `Enter`                                     |
 
 #### Restart Services
-| Steps             | Command                    |
+|                   |                            |
 | ----------------- | -------------------------- |
 | Restart ssh       | `service ssh restart`      |
 | Restart sshd      | `service sshd restart`     |
 | Check SSH status  | `service ssh status`       |
 
 #### Configure Firewall
-| Steps                    | Command                     |
+|                          |                             |
 | ------------------------ | --------------------------- |
 | Check status             | `ufw status` or `ss -tunlp` |
 | Enable ufw               | `ufw enable`                |
@@ -193,7 +193,6 @@
 | Open port 80 (http)      | `ufw allow 80`              |
 | Open port 443 (https)    | `ufw allow 443`             |
 | Close virtual machine    | `shutdown now`              |
-| Change virtual machine network adapter | `Settings` > `Network` > Change `NAT` to `Bridged Adapter` |
 
 #### Port Forwarding
 | Name    | Protocol | Host IP | Host Port | Guest IP | Guest Port |
@@ -202,8 +201,13 @@
 | `http`  | `TCP`    | `<empty>` | `80`    | `<empty>`| `80`       |
 | `https` | `TCP`    | `<empty>` | `443`   | `<empty>`| `443`      |
 
+#### Change Network Adapter
+|                                        |                                                            |
+| -------------------------------------- | ---------------------------------------------------------- |
+| Change virtual machine network adapter | `Settings` > `Network` > Change `NAT` to `Bridged Adapter` |
+
 #### Login with the OS terminal
-| Steps                                          | Command                          |
+|                                                |                                  |
 | ---------------------------------------------- | -------------------------------- |
 | Login with ssh (NAT or Bridged Adapter)        | `ssh root@localhost -p 42` or `ssh root@<vm_ip_address> -p 42` |
 | Check for known ssh hosts                      | `cat ~/.ssh/known_hosts`         |
@@ -231,20 +235,20 @@
 
 ### PRE CONFIGURE DOCKER
 #### Sudo Configuration
-| Steps                                      | Description                                      |
+|                                            |                                                  |
 | ------------------------------------------ | ------------------------------------------------ |
 | Open sudoers file                          | `nano /etc/sudoers`                              |
 | Under `# User privilege specification`     | Add `<intra_user> ALL=(ALL:ALL) ALL`             |
 | Save and exit                              | `Ctrl + X` > `Y` > `Enter`                       |
 
 #### Add User to Docker Group
-| Steps                            | Description                                      |
+|                                  |                                                  |
 | -------------------------------- | ------------------------------------------------ |
 | Add user to docker group         | `sudo usermod -aG docker <intra_user>`           |
 | Check user groups                | `groups <intra_user>`                            |
 
 #### Test Configuration
-| Steps                             | Description                                                             |
+|                                   |                                                                         |
 | --------------------------------- | ----------------------------------------------------------------------- |
 | Switch user                       | `su <intra_user>`                                                       |
 | Go to home directory              | `cd ~/`                                                                 |
@@ -254,7 +258,7 @@
 | Verify website                    | It should display `My html config is work!`                             |
 
 #### Create Project Directories and Files
-| Steps                            | Description                                      |
+|                                  |                                                  |
 | -------------------------------- | ------------------------------------------------ |
 | Create .sh file                  | `nano make_inception.sh`                         |
 | Copy and past the bash code      | *(Paste the provided bash code bellow)*          |
@@ -326,8 +330,8 @@ echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep browser_download_url  | grep linux-amd64 | cut -d '"' -f 4 | wget -qi -
 ```
 
-### Change Local Domain
-| Steps                                | Description                                                              |
+#### Change Local Domain
+|                                      |                                                                          |
 | ------------------------------------ | ------------------------------------------------------------------------ |
 | Edit hosts file                      | `sudo nano /etc/hosts`                                                   |
 | NAT configuration                    | Change `127.0.0.1 localhost` to `127.0.0.1 <intra_user>.42.fr localhost` |
@@ -335,21 +339,21 @@ curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep br
 | Start Docker                         | `cd ~/simple_docker_nginx_html/ && docker-compose up -d && cd ~/`        |
 | Start GUI                            | `sudo startx`                                                            |
 | Open Firefox in VM                   | `Right Click` > `Open Firefox`                                           |
-| Type the following URL               | `http://<intra_user>.42.fr/`                                             |
+| Type the following URL               | `http://<intra_user>.42.fr`                                              |
 
-### Create a Certificate
-| Steps                          | Description                                            |
+#### Create a Certificate
+|                                |                                                        |
 | ------------------------------ | ------------------------------------------------------ |
-| Change Directory               | `cd ~/project/srcs/requirements/tools/`                |
-| Obtain Certificate             | `mkcert <intra_user>.42.fr`                            |
-| Change Extension Name          | `mv <intra_user>.42.fr-key.pem <intra_user>.42.fr.key` |
-| Change Extension Name          | `mv <intra_user>.42.fr.pem <intra_user>.42.fr.crt`     |
+| Change directory               | `cd ~/project/srcs/requirements/tools/`                |
+| Obtain certificate             | `mkcert <intra_user>.42.fr`                            |
+| Change extension name          | `mv <intra_user>.42.fr-key.pem <intra_user>.42.fr.key` |
+| Change extension name          | `mv <intra_user>.42.fr.pem <intra_user>.42.fr.crt`     |
 
-### Reconfigure Docker NGINX File
-| Steps                          | Description                                               |
+#### Reconfigure Docker NGINX File
+|                                |                                                           |
 | ------------------------------ | --------------------------------------------------------- |
-| Edit Nginx Configuration       | `nano ~/simple_docker_nginx_html/nginx/conf.d/nginx.conf` |
-| Paste Configuration Code       | *(Copy and paste the provided configuration code bellow)* |
+| Edit NGINX configuration       | `nano ~/simple_docker_nginx_html/nginx/conf.d/nginx.conf` |
+| Paste configuration code       | *(Copy and paste the provided configuration code bellow)* |
 
 > [!WARNING]
 > Change `<intra_user>` to your username. There are five instances.
@@ -386,7 +390,7 @@ server {
 ```
 
 #### Reconfigure Docker YML File
-| Steps                          | Description                                                          |
+|                                |                                                                      |
 | ------------------------------ | -------------------------------------------------------------------- |
 | Stop Docker                    | `cd ~/simple_docker_nginx_html/ && docker-compose down && cd ~/`     |
 | Edit Docker YML File           | `cd ~/simple_docker_nginx_html/ && nano docker-compose.yml && cd ~/` |
@@ -394,11 +398,11 @@ server {
 | In the ports section add       | `"443:443"`                                                          |
 
 #### Run Project Via HTTPS With GUI
-| Steps                          | Description                                                       |
+|                                |                                                                   |
 | ------------------------------ | ----------------------------------------------------------------- |
 | Start Docker                   | `cd ~/simple_docker_nginx_html/ && docker-compose up -d && cd ~/` |
 | Start GUI                      | `sudo startx`                                                     |
 | Open Firefox in VM             | Check the browser for self-signed certificate                     |
-| Type the following URL         | `<intra_user>.42.fr` or `127.0.0.1`, or `<vm_ip_adress>`          |
+| Type the following URL         | `<intra_user>.42.fr` or `127.0.0.1` or `<vm_ip_adress>`           |
 
 ------
