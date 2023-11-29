@@ -29,6 +29,7 @@
 - [ ] Fixed size
 
 #### File Location and Size
+- [x] `/home/jotavare/VirtualBox VMs/Inception/Inception.vdi`
 - [x] `8,00 GB`
 
 #### Choose a Disk File
