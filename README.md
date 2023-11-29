@@ -291,7 +291,7 @@ echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 |-------------------------------------------|-------------------------------------------------|
 | Update list of repositories               | `sudo apt update -y`                            |
 | Install utilities for mkcert              | `sudo apt install -y wget curl libnss3-tools`   |
-| Download mkcert binary                    | `curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest &#124; grep browser_download_url  &#124; grep linux-amd64 &#124; cut -d '&#34;' -f 4 &#124; wget -qi -` |
+| Download mkcert binary                    | curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest | grep browser_download_url  | grep linux-amd64 | cut -d '"' -f 4 | wget -qi - |
 | Rename the binary                         | `mv mkcert-v*-linux-amd64 mkcert`               |
 | Give all permissions                      | `chmod 777 mkcert`                              |
 | Move mkcert to bin directory              | `sudo mv mkcert /usr/local/bin/`                |
