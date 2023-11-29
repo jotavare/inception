@@ -139,3 +139,45 @@
 
 > [!NOTE]
 > If everything opens and appears right you can close with `right click with mouse` > `Exit` > `Exit`
+
+- - - -
+
+### PORT FORWARDING
+#### Configure SSH
+- `nano /etc/ssh/sshd_config`
+- If port 22 is being used by the school - `#Port 22` to `Port 42` 
+- `#PermitRootLogin prohibit-password` to `PermitRootLogin yes`
+- Optional - `#PasswordAuthentication yes` to `PasswordAuthentication yes`
+- Save and exit file - `Ctrl` + `X` > `Y` > `Enter`
+
+#### Restart services
+- `service ssh restart`
+- `service sshd restart`
+- `service ssh status`
+
+#### Configure Firewall
+| Description           | Command         |
+| --------------------- | --------------- |
+| Check status          | `ufw status` or `ss -tunlp` |
+| Enable ufw            | `ufw enable`    |
+| Open port 42 (SSH)    | `ufw allow 42`  |
+| Open port 80 (HTTP)   | `ufw allow 80`  |
+| Open port 443 (HTTPS) | `ufw allow 443` |
+| Close virtual machine | `shutdown now`  |
+
+
+#### Port forwarding
+- Go to our virtual machine `Settings` in VirtualBox;
+- `Network` > `Advanced` > `Port Forwarding`;
+- Add the same ports allowed in the firewall;
+
+| Name | Protocol | Host IP | Host Port | Guest IP | Guest Port |
+| ---- | -------- | ------- | --------- | -------- | ---------- |
+| `SSH`   | `TCP` | `<empty>` | `42`  | `<empty>`| `42`  |
+| `HTTP`  | `TCP` | `<empty>` | `80`  | `<empty>`| `80`  |
+| `HTTPS` | `TCP` | `<empty>` | `443` | `<empty>`| `443` |
+
+#### Login with OS terminal
+- Open a terminal in your main OS;
+- `ssh root@localhost -p 42` or `ssh root@<vm ip address> -p 42`;
+- You can check for known ssh hosts with `cat ~/.ssh/known_hosts`;
