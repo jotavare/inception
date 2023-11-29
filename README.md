@@ -131,23 +131,16 @@
 - - - -
 
 ### INSTALL NECESSARY SOFTWARE
-#### Login to the System
-- Inception login: `root`
-- Password: `<insert_password>`
-
-#### Update Repository List
-- Run: `apt update`
-
-#### Install Necessary Applications
-- Run: `apt install -y sudo ufw docker docker-compose make openbox xinit kitty firefox-esr`
-
-#### Check Applications
-- Run: `startx` > `Right Click` > `Applications`
-  - `Internet` > `Firefox ESR` - Opens Firefox.
-  - `System` > `kitty` - Opens the terminal.
-
-> [!NOTE]
-> If everything opens and appears correctly, close with `Right Click` > `Exit`.
+|                        |                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| Inception login        | `root`                                                                               |
+| Password               | `<insert_password>`                                                                  |
+| Update repository list | `apt update`                                                                         |
+| Install necessary apps | `apt install -y sudo ufw docker docker-compose make openbox xinit kitty firefox-esr` |
+| Run GUI                | `startx` > `Right Click` > `Applications`                                            |
+| Open Firefox           | `Internet` > `Firefox ESR`                                                           |
+| Open terminal          | `System` > `kitty`                                                                   |
+| Close GUI              | `Right Click` > `Exit`                                                               |
 
 - - - -
 
