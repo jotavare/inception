@@ -33,7 +33,8 @@
 - [x] `8,00 GB`
 
 #### Choose a Disk File
-- [x] `Settings` > `Storage` > Click on `Empty` > Click on disk icon > `Choose a disk file...` > Insert Debian .iso
+- [x] `Settings` > `Storage` > Click on `Empty`
+- [x] Click on disk icon > `Choose a disk file...` > Insert `debian.iso` file
 
 > [!NOTE]
 > If needed, you can add more processor cores to the virtual machine: Settings > System > Processor.
