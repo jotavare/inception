@@ -207,8 +207,6 @@
 
 - - - -
 
-Let's convert the content into tables for a cleaner presentation:
-
 ### PRE CONFIGURE DOCKER
 #### Sudo Configuration
 | Steps                            | Description                                      |
