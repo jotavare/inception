@@ -290,3 +290,69 @@ echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 | Give all permissions                      | `chmod 777 mkcert`                              |
 | Move mkcert to bin directory              | `sudo mv mkcert /usr/local/bin/`                |
 | Check mkcert version                      | `mkcert --version`                              |
+
+#### Change local domain
+- Edit file `sudo nano /etc/hosts`
+- If you are using `NAT` change to `127.0.0.1 <intra_user>.42.ft localhost`
+- If you are using `Bridged Adapter` add `<vm_ip_address> <intra_user>.42.ft`
+- Start docker `cd ~/simple_docker_nginx_html/ && docker-compose up -d`
+- Start terminal with GUI `sudo startx`
+- Go to the virtual machine and `Right Click` and open `Firefox`
+- Type `http://<intra_user>.42.fr/` and it should appear `My html config is work!`
+
+#### Create a certificate
+- Close the GUI and open the terminal again;
+- Change directory `cd ~/project/srcs/requirements/tools/`
+- Obtain certificate `mkcert <intra_user>.42.fr`
+- Change extension name so nginx can read it correctly;
+- `mv <intra_user>.42.fr-key.pem <intra_user>.42.fr.key`
+- `mv <intra_user>.42.fr.pem <intra_user>.42.fr.crt`
+
+#### Reconfiguer docker container to https
+- `nano ~/simple_docker_nginx_html/nginx/conf.d/nginx.conf`
+- Delete everything and paste the following:
+```bash
+server {
+    # Listen on port http
+    listen      80;
+    # Listen on port https - ssl
+    listen      443 ssl;
+    # Set the domain we will work on:
+    server_name  <intra_user>.42.fr <intra_user>.42.fr;
+    # Specify the root directory of the project:
+    root    /var/www/public/html;
+    # The next section is commented out for
+    # normal operation with the host machine.
+    # Redirect from http to https:
+    #if ($scheme = 'http') {
+    #    return 301 https://<intra_user>.42.fr$request_uri;
+    #}
+    # Specify the path to the certificate and key:
+    ssl_certificate     /etc/nginx/ssl/<intra_user>.42.fr.crt;
+    ssl_certificate_key /etc/nginx/ssl/<intra_user>.42.fr.key;
+    # Specify supported tls protocols:
+    ssl_protocols            TLSv1.2 TLSv1.3;
+    # Specify caching options and timeouts:
+    ssl_session_timeout 10m;
+    keepalive_timeout 70;
+    # Tell the server which file extension
+    # to look for in our root folder:
+    location / {
+        try_files $uri /index.html;
+    }
+}
+```
+- Stop docker `cd ~/simple_docker_nginx_html/ && docker-compose down`
+- Edit docker yml file `nano docker-compose.yml`
+- In the volume section add `/home/${USER}/project/srcs/requirements/tools:/etc/nginx/ssl`
+- In the ports section add `"443:443"`
+
+#### Run project via https with GUI
+- docker-compose up -d
+- startx
+- go to the virtual machine and open firefox
+- Check if the browser doesnt trust our self signed certificate
+- Go to `Advanced` > `Accept the Risk and Continue`
+- Now the browser trusts our certificate and loads via ssl but its still not secure;
+- Depending on how you did it you can also check in the local `Firefox`;
+- In the URL write `<intra_user>.42.fr`, `127.0.0.1` or `<vm_ip_adress>`
