@@ -145,26 +145,23 @@
 
 ### PORT FORWARDING
 #### Configure SSH
-
-| Description                              | Command                                                       |
+| Steps                                    | Command                                                       |
 | ---------------------------------------- | ------------------------------------------------------------- |
-| Edit SSH configuration file              | `nano /etc/ssh/sshd_config`                                   |
-| Change SSH port to 42                    | `#Port 22` to `Port 42`                                       |
+| Edit sshd_config file                    | `nano /etc/ssh/sshd_config`                                   |
+| Change SSH port to 42                    | `#Port 22` to `Port 22` or `Port 42` if the previous is taken |
 | Enable root login                        | `#PermitRootLogin prohibit-password` to `PermitRootLogin yes` |
 | Optional: Enable password authentication | `#PasswordAuthentication yes` to `PasswordAuthentication yes` |
-| Save and exit                            | `Ctrl + X` > `Y` > `Enter`                                  |
+| Save and exit sshd_config file           | `Ctrl + X` > `Y` > `Enter`                                  |
 
 #### Restart services
-
-| Description       | Command                    |
+| Steps             | Command                    |
 | ----------------- | -------------------------- |
 | Restart SSH       | `service ssh restart`      |
 | Restart SSHD      | `service sshd restart`     |
 | Check SSH status  | `service ssh status`       |
 
 #### Configure Firewall
-
-| Description              | Command                     |
+| Steps                    | Command                     |
 | ------------------------ | --------------------------- |
 | Check status             | `ufw status` or `ss -tunlp` |
 | Enable ufw               | `ufw enable`                |
@@ -174,7 +171,6 @@
 | Close virtual machine    | `shutdown now`              |
 
 #### Port Forwarding
-
 | Name    | Protocol | Host IP | Host Port | Guest IP | Guest Port |
 | ------- | -------- | ------- | --------- | -------- | ---------- |
 | `SSH`   | `TCP`    | `<empty>` | `42`    | `<empty>`| `42`       |
@@ -182,8 +178,7 @@
 | `HTTPS` | `TCP`    | `<empty>` | `443`   | `<empty>`| `443`      |
 
 #### Login with the OS terminal
-
-| Description                                    | Command                          |
+| Steps                                          | Command                          |
 | ---------------------------------------------- | -------------------------------- |
 | Login with SSH (NAT)                           | `ssh root@localhost -p 42`       | 
 | Login with SSH (Bridged Adapter)               | `ssh root@<vm_ip_address> -p 42` |
@@ -224,14 +219,12 @@ Let's convert the content into tables for a cleaner presentation:
 | Save and exit                    | `Ctrl + X` > `Y` > `Enter`                     |
 
 #### Add User to Docker Group
-
 | Steps                            | Description                                      |
 | -------------------------------- | ------------------------------------------------ |
 | Add user to docker group         | `sudo usermod -aG docker <intra_user>`           |
 | Check user groups                | `groups <intra_user>`                            |
 
 #### Test Configuration
-
 | Steps                            | Description                                      |
 | -------------------------------- | ------------------------------------------------ |
 | Switch user                      | `su <intra_user>`                                |
@@ -242,7 +235,6 @@ Let's convert the content into tables for a cleaner presentation:
 | Verify website                   | It should display `My html config is work!`      |
 
 #### Create Project Directories and Files (Script)
-
 | Steps                            | Description                                      |
 | -------------------------------- | ------------------------------------------------ |
 | Create .sh file                  | `nano make_inception.sh`                         |
