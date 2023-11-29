@@ -181,3 +181,93 @@
 - Open a terminal in your main OS;
 - `ssh root@localhost -p 42` or `ssh root@<vm ip address> -p 42`;
 - You can check for known ssh hosts with `cat ~/.ssh/known_hosts`;
+
+- - - -
+
+### STORING CONFIGURATION
+> [!NOTE]
+> Why is the below important? If something goes wrong in the future (believe me that it will), we can always restore a specific snapshot or download our configuration from the cloud.
+
+#### Create snapshot
+- Open the VirtualBox;
+- `Left Click` on top of the icon of your VM and choose `Snapshots`;
+- Click on `Take`;
+- Write a name like `Basic Inception Configuration` and a description for future reference;
+
+#### Save on cloud
+- Go to the VirtualBox folder and compress the `Inception` folder;
+- Also you can use the `Export` function in VirtualBox;
+- Upload to the internet, usually 1-2 GB;
+
+#### Open in a different pc
+- Find the main folder of VirtualBox;
+- Uncompress it inside;
+- Open VirtualBox and it should appear everything;
+
+### PRE CONFIGURE DOCKER
+#### Sudo configuration
+- Open your virtual box with the main OS terminal;
+- Open the file `nano /etc/sudoers`;
+- In `# User privilege specification` add bellow `<intra user> ALL=(ALL:ALL) ALL`;
+- Save and exit file `Ctrl` + `X` > `Y` > `Enter`;
+
+#### Add user to docker group
+- Add user to groups `sudo usermod -aG docker <intra user>`;
+- Check user groups `groups <intra user>`;
+
+#### Test configuration
+- Switch user `su <intra user>`;
+- Go to the home directory `cd ~/`;
+- Test docker `git clone https://github.com/codesshaman/simple_docker_nginx_html.git`;
+- Build docker `docker-compose up -d`;
+- Open Firefox and browse `172.17.0.1` (localhost) or `<vm ip>` (bridged adapter);
+- If it should appear `My html config is work!`;
+
+#### Create project directories and files
+- Create .sh file `nano make_inception.sh`;
+- Open it and paste the following code:
+```bash
+#!/bin/bash
+mkdir project
+mkdir project/srcs
+touch project/Makefile
+mkdir project/srcs/requirements
+touch project/srcs/docker-compose.yml
+touch project/srcs/.env
+echo "DOMAIN_NAME=<your_nickname>.42.fr" > project/srcs/.env
+echo "CERT_=./requirements/tools/<your_nickname>.42.fr.crt" >> project/srcs/.env
+echo "KEY_=./requirements/tools/<your_nickname>.42.fr.key" >> project/srcs/.env
+echo "DB_NAME=wordpress" >> project/srcs/.env
+echo "DB_ROOT=rootpass" >> project/srcs/.env
+echo "DB_USER=wpuser" >> project/srcs/.env
+echo "DB_PASS=wppass" >> project/srcs/.env
+mkdir project/srcs/requirements/bonus
+mkdir project/srcs/requirements/mariadb
+mkdir project/srcs/requirements/mariadb/conf
+touch project/srcs/requirements/mariadb/conf/create_db.sh
+mkdir project/srcs/requirements/mariadb/tools
+echo "" > project/srcs/requirements/mariadb/tools/.gitkeep
+touch project/srcs/requirements/mariadb/Dockerfile
+touch project/srcs/requirements/mariadb/.dockerignore
+echo ".git" > project/srcs/requirements/mariadb/.dockerignore
+echo ".env" >> project/srcs/requirements/mariadb/.dockerignore
+mkdir project/srcs/requirements/nginx
+mkdir project/srcs/requirements/nginx/conf
+touch project/srcs/requirements/nginx/conf/nginx.conf
+mkdir project/srcs/requirements/nginx/tools
+touch project/srcs/requirements/nginx/Dockerfile
+echo ".git" > project/srcs/requirements/mariadb/.dockerignore
+echo ".env" >> project/srcs/requirements/mariadb/.dockerignore
+mkdir project/srcs/requirements/tools
+mkdir project/srcs/requirements/wordpress
+mkdir project/srcs/requirements/wordpress/conf
+touch project/srcs/requirements/wordpress/conf/wp-config-create.sh
+mkdir project/srcs/requirements/wordpress/tools
+echo "" > project/srcs/requirements/wordpress/tools/.gitkeep
+touch project/srcs/requirements/wordpress/Dockerfile
+touch project/srcs/requirements/wordpress/.dockerignore
+echo ".git" > project/srcs/requirements/wordpress/.dockerignore
+echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
+```
+- Give permissions `chmod 777 create_folders.sh`;
+- Run `./make_inception.sh`;
