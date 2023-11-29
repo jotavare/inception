@@ -204,9 +204,11 @@
 - Uncompress it inside;
 - Open VirtualBox and it should appear everything;
 
+- - - -
+
 ### PRE CONFIGURE DOCKER
 #### Sudo configuration
-- Open your virtual box with the main OS terminal;
+- Login to virtual machine through ssh;
 - Open the file `nano /etc/sudoers`;
 - In `# User privilege specification` add bellow `<intra user> ALL=(ALL:ALL) ALL`;
 - Save and exit file `Ctrl` + `X` > `Y` > `Enter`;
@@ -269,5 +271,31 @@ touch project/srcs/requirements/wordpress/.dockerignore
 echo ".git" > project/srcs/requirements/wordpress/.dockerignore
 echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 ```
-- Give permissions `chmod 777 create_folders.sh`;
-- Run `./make_inception.sh`;
+- Save and exit file `Ctrl` + `X` > `Y` > `Enter`;
+- Give permissions to file `chmod 777 make_inception.sh`;
+- Run script to create all necessary folders and files `./make_inception.sh`;
+
+- - - -
+
+### CHANGE DOMAIN AND INSTALL CERTIFICATES
+#### Install mkcert
+Certainly! Here's your process formatted into a markdown table:
+
+| Step                                      | Command                                         |
+|-------------------------------------------|-------------------------------------------------|
+| Login to the virtual machine (NAT)        | `ssh root@localhost -p 42`                      |
+| Login to the virtual machine (Bridged Adpter) | `ssh root@<vm_ip_address> -p 42`            |
+| Update list of repositories               | `sudo apt update -y`                            |
+| Install utilities for mkcert              | `sudo apt install -y wget curl libnss3-tools`   |
+
+- Download mkcert binary;
+```bash
+curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep browser_download_url  | grep linux-amd64 | cut -d '"' -f 4 | wget -qi -```
+```
+
+| Step                                      | Command                                         |
+|-------------------------------------------|-------------------------------------------------|
+| Rename the binary                         | `mv mkcert-v*-linux-amd64 mkcert`               |
+| Give all permissions                      | `chmod 777 mkcert`                              |
+| Move mkcert to bin directory              | `sudo mv mkcert /usr/local/bin/`                |
+| Check mkcert version                      | `mkcert --version`                              |
