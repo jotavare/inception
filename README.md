@@ -226,7 +226,7 @@
 | Switch user                       | `su <intra_user>`                                                       |
 | Go to home directory              | `cd ~/`                                                                 |
 | Download Docker sample            | `git clone https://github.com/codesshaman/simple_docker_nginx_html.git` |
-| Change directory and build Docker | `cd simple_docker_nginx_html/ && docker-compose up -d`                  |  
+| Change directory and build Docker | `cd simple_docker_nginx_html/ && docker-compose up -d && cd ..`         |  
 | Open browser and write in the URL | `172.0.0.1` (NAT) or `<vm_ip_adress>` (Bridged Adapter)                 |
 | Verify website                    | It should display `My html config is work!`                             |
 
