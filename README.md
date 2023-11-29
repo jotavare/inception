@@ -45,39 +45,39 @@
 - `Enter` - confirm
 
 #### Debian GNU/Linux installer menu (BIOS mode)
-- [ ] Graphic Install
-- [x] Install
-- [ ] Advanced options
-- [ ] Accessible dark contrast installer menu
-- [ ] Help
-- [ ] Install with speech synthesis
+- [ ] `Graphic Install`
+- [x] `Install`
+- [ ] `Advanced options`
+- [ ] `Accessible dark contrast installer menu`
+- [ ] `Help`
+- [ ] `Install with speech synthesis`
 
 #### Select a language
-- [x] English
+- [x] `English`
 
 #### Select your location
-- [x] other > Europe > Portugal
+- [x] `other` > `Europe` > `Portugal`
 
 #### Configure locales
-- [x] United States
+- [x] `United States`
 
 #### Configure the keyboard
-- [x] American English
+- [x] `American English`
 
 #### Configure the network
-- **Hostname:** `inception`
-- **Domain name:** `<empty>`
+- [x] Hostname: `inception`
+- [x] Domain name: `<empty>`
 
 #### Set up users and passwords
-- **Root password:** `<password easy to remember>`
-- **Full name for the new user:** `<intra username>`
-- **Username for your account:** `<intra username>`
-- **Choose a password for the new user:** `<password easy to remember>`
+- [x] Root password: `<password easy to remember>`
+- [x] Full name for the new user: `<intra username>`
+- [x] Username for your account: `<intra username>`
+- [x] Choose a password for the new user: `<password easy to remember>`
 
 #### Configure the clock
-- [x] Lisbon
-- [ ] Madeira Islands
-- [ ] Azores
+- [x] `Lisbon`
+- [ ] `Madeira Islands`
+- [ ] `Azores`
 
 #### Partition method
 - [x] `Guided - use entire disk`
@@ -102,17 +102,17 @@
 - [x] HTTP proxy information (blank for none): `<empty>`
 
 #### Configure popularity-contest
-- Participate in the package usage survey? `No`
+- [x] Participate in the package usage survey? `No`
 
 #### Software selection
 - [x] `SSH server`
 
 #### Install the GRUB boot loader
-- Install the GRUB boot loader to your primary drive? `Yes`
+- [x] Install the GRUB boot loader to your primary drive? `Yes`
 
 #### Configuring grub-pc
 - [ ] Enter device manually
 - [x] `/dev/sda (ata-VBOX_HARDISK_VB2e44d73e-45a0c522)`
 
 #### Finish the installations
-- [ ] `Continue`
+- [x] `Continue`
