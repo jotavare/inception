@@ -216,7 +216,7 @@ Let's convert the content into tables for a cleaner presentation:
 | -------------------------------- | ------------------------------------------------ |
 | Open sudoers file                | `nano /etc/sudoers`                              |
 | Add user privilege specification | `<intra_user> ALL=(ALL:ALL) ALL`                 |
-| Save and exit                    | `Ctrl + X` > `Y` > `Enter`                     |
+| Save and exit                    | `Ctrl + X` > `Y` > `Enter`                       |
 
 #### Add User to Docker Group
 | Steps                            | Description                                      |
@@ -225,16 +225,16 @@ Let's convert the content into tables for a cleaner presentation:
 | Check user groups                | `groups <intra_user>`                            |
 
 #### Test Configuration
-| Steps                            | Description                                      |
-| -------------------------------- | ------------------------------------------------ |
-| Switch user                      | `su <intra_user>`                                |
-| Go to home directory             | `cd ~/`                                          |
+| Steps                            | Description                                                             |
+| -------------------------------- | ----------------------------------------------------------------------- |
+| Switch user                      | `su <intra_user>`                                                       |
+| Go to home directory             | `cd ~/`                                                                 |
 | Download Docker sample           | `git clone https://github.com/codesshaman/simple_docker_nginx_html.git` |
-| Build Docker                     | `docker-compose up -d`                           |
-| Open browser and insert          | `172.17.0.1` (NAT) or `<vm_ip_adress>` (Bridged Adapter) |
-| Verify website                   | It should display `My html config is work!`      |
+| Build Docker                     | `docker-compose up -d`                                                  |
+| Open browser and insert          | `172.17.0.1` (NAT) or `<vm_ip_adress>` (Bridged Adapter)                |
+| Verify website                   | It should display `My html config is work!`                             |
 
-#### Create Project Directories and Files (Script)
+#### Create Project Directories and Files
 | Steps                            | Description                                      |
 | -------------------------------- | ------------------------------------------------ |
 | Create .sh file                  | `nano make_inception.sh`                         |
@@ -293,36 +293,39 @@ echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 #### Install mkcert
 | Step                                      | Command                                         |
 |-------------------------------------------|-------------------------------------------------|
-| Login to the virtual machine (NAT)        | `ssh root@localhost -p 42`                      |
-| Login to the virtual machine (Bridged Adpter) | `ssh root@<vm_ip_address> -p 42`            |
 | Update list of repositories               | `sudo apt update -y`                            |
 | Install utilities for mkcert              | `sudo apt install -y wget curl libnss3-tools`   |
-| Download mkcert binary | `curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest &#124; grep browser_download_url  &#124; grep linux-amd64 &#124; cut -d '&#34;' -f 4 &#124; wget -qi -` |
+| Download mkcert binary                    | `curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest &#124; grep browser_download_url  &#124; grep linux-amd64 &#124; cut -d '&#34;' -f 4 &#124; wget -qi -` |
 | Rename the binary                         | `mv mkcert-v*-linux-amd64 mkcert`               |
 | Give all permissions                      | `chmod 777 mkcert`                              |
 | Move mkcert to bin directory              | `sudo mv mkcert /usr/local/bin/`                |
 | Check mkcert version                      | `mkcert --version`                              |
 
-#### Change local domain
-- Edit file `sudo nano /etc/hosts`
-- If you are using `NAT` change to `127.0.0.1 <intra_user>.42.ft localhost`
-- If you are using `Bridged Adapter` add `<vm_ip_address> <intra_user>.42.ft`
-- Start docker `cd ~/simple_docker_nginx_html/ && docker-compose up -d`
-- Start terminal with GUI `sudo startx`
-- Go to the virtual machine and `Right Click` and open `Firefox`
-- Type `http://<intra_user>.42.fr/` and it should appear `My html config is work!`
+### Change Local Domain
+| Steps                          | Description                                              |
+| ------------------------------ | -------------------------------------------------------- |
+| Edit hosts file                | `sudo nano /etc/hosts`                                   |
+| NAT Configuration              | Change to `127.0.0.1 <intra_user>.42.ft localhost`       |
+| Bridged Adapter Configuration  | Change/Add `<vm_ip_address> <intra_user>.42.ft`          |
+| Start Docker                   | `cd ~/simple_docker_nginx_html/ && docker-compose up -d` |
+| Start GUI                      | `sudo startx`                                            |
+| Open Firefox in VM             | `Right Click` > `Open Firefox`                           |
+| Type the following URL         | `http://<intra_user>.42.fr/`                             |
 
-#### Create a certificate
-- Close the GUI and open the terminal again;
-- Change directory `cd ~/project/srcs/requirements/tools/`
-- Obtain certificate `mkcert <intra_user>.42.fr`
-- Change extension name so nginx can read it correctly;
-- `mv <intra_user>.42.fr-key.pem <intra_user>.42.fr.key`
-- `mv <intra_user>.42.fr.pem <intra_user>.42.fr.crt`
+### Create a Certificate
+| Steps                          | Description                                            |
+| ------------------------------ | ------------------------------------------------------ |
+| Change Directory               | `cd ~/project/srcs/requirements/tools/`                |
+| Obtain Certificate             | `mkcert <intra_user>.42.fr`                            |
+| Change Extension Name          | `mv <intra_user>.42.fr-key.pem <intra_user>.42.fr.key` |
+| Change Extension Name          | `mv <intra_user>.42.fr.pem <intra_user>.42.fr.crt`     |
 
-#### Reconfiguer docker container to https
-- `nano ~/simple_docker_nginx_html/nginx/conf.d/nginx.conf`
-- Delete everything and paste the following:
+### Reconfigure Docker NGINX File
+| Steps                          | Description                                               |
+| ------------------------------ | --------------------------------------------------------- |
+| Edit Nginx Configuration       | `nano ~/simple_docker_nginx_html/nginx/conf.d/nginx.conf` |
+| Paste Configuration Code       | *(Refer to the provided configuration code bellow)*       |
+
 ```bash
 server {
     # Listen on port http
@@ -354,17 +357,21 @@ server {
     }
 }
 ```
-- Stop docker `cd ~/simple_docker_nginx_html/ && docker-compose down`
-- Edit docker yml file `nano docker-compose.yml`
-- In the volume section add `/home/${USER}/project/srcs/requirements/tools:/etc/nginx/ssl`
-- In the ports section add `"443:443"`
 
-#### Run project via https with GUI
-- docker-compose up -d
-- startx
-- go to the virtual machine and open firefox
-- Check if the browser doesnt trust our self signed certificate
-- Go to `Advanced` > `Accept the Risk and Continue`
-- Now the browser trusts our certificate and loads via ssl but its still not secure;
-- Depending on how you did it you can also check in the local `Firefox`;
-- In the URL write `<intra_user>.42.fr`, `127.0.0.1` or `<vm_ip_adress>`
+#### Reconfigure Docker YML File
+| Steps                          | Description                                                    |
+| ------------------------------ | -------------------------------------------------------------- |
+| Stop Docker                    | `cd ~/simple_docker_nginx_html/ && docker-compose down`        |
+| Edit Docker YML File           | `nano docker-compose.yml`                                      |
+| In the volume section add      | `/home/${USER}/project/srcs/requirements/tools:/etc/nginx/ssl` |
+| In the ports section add       | `"443:443"`                                                    |
+
+#### Run Project Via HTTPS With GUI
+| Steps                          | Description                                                 |
+| ------------------------------ | ----------------------------------------------------------- |
+| Start Docker                   | `docker-compose up -d`                                      |
+| Start GUI                      | `startx`                                                    |
+| Open Firefox in VM             | Check the Browser Trust for Self-Signed Certificate         |
+| Type the following URL         | `<intra_user>.42.fr`, `127.0.0.1`, or `<vm_ip_adress>`      |
+
+------
