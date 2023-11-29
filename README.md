@@ -182,8 +182,7 @@
 #### Login with the OS terminal
 | Steps                                          | Command                          |
 | ---------------------------------------------- | -------------------------------- |
-| Login with ssh (NAT)                           | `ssh root@localhost -p 42`       | 
-| Login with ssh (Bridged Adapter)               | `ssh root@<vm_ip_address> -p 42` |
+| Login with ssh (NAT or Bridged Adapter)        | `ssh root@localhost -p 42` or `ssh root@<vm_ip_address> -p 42` |
 | Check for known ssh hosts                      | `cat ~/.ssh/known_hosts`         |
 
 - - - -
@@ -222,14 +221,14 @@
 | Check user groups                | `groups <intra_user>`                            |
 
 #### Test Configuration
-| Steps                            | Description                                                             |
-| -------------------------------- | ----------------------------------------------------------------------- |
-| Switch user                      | `su <intra_user>`                                                       |
-| Go to home directory             | `cd ~/`                                                                 |
-| Download Docker sample           | `git clone https://github.com/codesshaman/simple_docker_nginx_html.git` |
-| Build Docker                     | `docker-compose up -d`                                                  |
-| Open browser and insert          | `172.17.0.1` (NAT) or `<vm_ip_adress>` (Bridged Adapter)                |
-| Verify website                   | It should display `My html config is work!`                             |
+| Steps                             | Description                                                             |
+| --------------------------------- | ----------------------------------------------------------------------- |
+| Switch user                       | `su <intra_user>`                                                       |
+| Go to home directory              | `cd ~/`                                                                 |
+| Download Docker sample            | `git clone https://github.com/codesshaman/simple_docker_nginx_html.git` |
+| Change directory and build Docker | `cd simple_docker_nginx_html/ && docker-compose up -d`                  |  
+| Open browser and insert           | `172.17.0.1` (NAT) or `<vm_ip_adress>` (Bridged Adapter)                |
+| Verify website                    | It should display `My html config is work!`                             |
 
 #### Create Project Directories and Files
 | Steps                            | Description                                      |
