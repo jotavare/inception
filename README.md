@@ -125,15 +125,13 @@
 - [ ] Enter device manually
 - [x] `/dev/sda (ata-VBOX_HARDISK_VB2e44d73e-45a0c522)`
 
-#### Finish the Installations
+#### Finish the Installation and Reboot
 - [x] `Continue`
 
 - - - -
 
 ### INSTALL NECESSARY SOFTWARE
 #### Login to the System
-- Start the virtual machine.
-- Select `Debian GNU/Linux`.
 - Inception login: `root`
 - Password: `<insert_password>`
 
