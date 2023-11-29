@@ -6,7 +6,7 @@
 
 ### CREATE A NEW VIRTUAL MACHINE
 #### Name and operating system
-- **Name:** `inception`
+- **Name:** `Inception`
 - **Machine Folder:** `/home/jotavare/VirtualBox VMs`
 - **Type:** Linux
 - **Version:** Debian (64-bit)
@@ -65,7 +65,7 @@
 - [x] `American English`
 
 #### Configure the network
-- [x] Hostname: `inception`
+- [x] Hostname: `Inception`
 - [x] Domain name: `<empty>`
 
 #### Set up users and passwords
@@ -116,3 +116,26 @@
 
 #### Finish the installations
 - [x] `Continue`
+
+- - - -
+
+### INSTALL NECESSARY SOFTWARE
+#### Login to the system
+- Start the virtual machine
+- Select `Debian GNU/Linux`
+- Inception login: `root`
+- Password: `<insert the same password from the previous installation>`
+
+#### Update repository list
+- `apt update`
+
+#### Install necessary applications
+- `apt install -y sudo ufw docker docker-compose make openbox xinit kitty firefox-esr`
+
+#### Check applications
+- `startx` > `right click with mouse` > `Applications`
+- `Internet` > `Firefox ESR` - Opens Firefox.
+- `System` > `kitty` - Opens the terminal.
+
+> [!NOTE]
+> If everything opens and appears right you can close with `right click with mouse` > `Exit` > `Exit`
