@@ -240,7 +240,7 @@
 | Run .sh file                     | `./make_inception.sh`                            |
 
 > [!WARNING]
-> Change `<intra_user>` to your username.
+> Change `<intra_user>` to your username. There are two instances.
 ```sh
 #!/bin/bash
 mkdir project
@@ -328,6 +328,8 @@ curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep br
 | Edit Nginx Configuration       | `nano ~/simple_docker_nginx_html/nginx/conf.d/nginx.conf` |
 | Paste Configuration Code       | *(Copy and paste the provided configuration code bellow)* |
 
+> [!WARNING]
+> Change `<intra_user>` to your username. There are five instances.
 ```bash
 server {
     # Listen on port http
@@ -374,6 +376,6 @@ server {
 | Start Docker                   | `cd ~/simple_docker_nginx_html/ && docker-compose up -d && cd ~/` |
 | Start GUI                      | `sudo startx`                                                     |
 | Open Firefox in VM             | Check the browser for self-signed certificate                     |
-| Type the following URL         | `<intra_user>.42.fr`, `127.0.0.1`, or `<vm_ip_adress>`            |
+| Type the following URL         | `<intra_user>.42.fr` or `127.0.0.1`, or `<vm_ip_adress>`          |
 
 ------
