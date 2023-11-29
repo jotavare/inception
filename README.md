@@ -45,9 +45,11 @@
 
 ### INSTALL DEBIAN OS
 #### Commands
-- `TAB` - Move
-- `Space` - Select
-- `Enter` - Confirm
+|         |         |
+| ------- | ------- |
+| `TAB`   | Move    |
+| `Space` | Select  |
+| `Enter` | Confirm |
 
 #### Debian GNU/Linux Installer Menu (BIOS mode)
 - [ ] `Graphic Install`
@@ -70,14 +72,18 @@
 - [x] `American English`
 
 #### Configure the Network
-- [x] Hostname: `Inception`
-- [x] Domain name: `<empty>`
+|             |             |
+| ----------- | ----------- |
+| Hostname    | `Inception` |
+| Domain Name | `<empty>`   |
 
 #### Set Up Users and Passwords
-- [x] Root Password: `<password>`
-- [x] Full Name for the New User: `<intra_user>`
-- [x] Username for Your Account: `<intra_user>`
-- [x] Choose a Password for the New User: `<password>`
+|                                    |                |
+| ---------------------------------- | -------------- |
+| Root Password                      | `<password>`   |
+| Full Name for the New User         | `<intra_user>` |
+| Username for Your Account          | `<intra_user>` |
+| Choose a Password for the New User | `<password>`   |
 
 #### Configure the Clock
 - [x] `Lisbon`
