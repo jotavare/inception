@@ -146,19 +146,19 @@
 
 ### PORT FORWARDING
 #### Configure SSH
-| Steps                                    | Command                                                       |
-| ---------------------------------------- | ------------------------------------------------------------- |
-| Edit sshd_config file                    | `nano /etc/ssh/sshd_config`                                   |
-| Change SSH port to 42                    | `#Port 22` to `Port 22` or `Port 42` if the previous is taken |
-| Enable root login                        | `#PermitRootLogin prohibit-password` to `PermitRootLogin yes` |
-| Optional: Enable password authentication | `#PasswordAuthentication yes` to `PasswordAuthentication yes` |
-| Save and exit sshd_config file           | `Ctrl + X` > `Y` > `Enter`                                  |
+| Steps                                     | Command                                                        |
+| ----------------------------------------- | -------------------------------------------------------------- |
+| Edit sshd_config file                     | `nano /etc/ssh/sshd_config`                                    |
+| Change ssh port to 42                     | `#Port 22` to `Port 22` or `Port 42`                           |
+| Enable root login                         | `#PermitRootLogin prohibit-password` to `PermitRootLogin yes`  |
+| Enable password authentication (Optional) | `#PasswordAuthentication yes` to `PasswordAuthentication yes`  |
+| Save and exit sshd_config file            | `Ctrl + X` > `Y` > `Enter`                                     |
 
-#### Restart services
+#### Restart Services
 | Steps             | Command                    |
 | ----------------- | -------------------------- |
-| Restart SSH       | `service ssh restart`      |
-| Restart SSHD      | `service sshd restart`     |
+| Restart ssh       | `service ssh restart`      |
+| Restart sshd      | `service sshd restart`     |
 | Check SSH status  | `service ssh status`       |
 
 #### Configure Firewall
@@ -166,24 +166,24 @@
 | ------------------------ | --------------------------- |
 | Check status             | `ufw status` or `ss -tunlp` |
 | Enable ufw               | `ufw enable`                |
-| Open port 42 (SSH)       | `ufw allow 42`              |
-| Open port 80 (HTTP)      | `ufw allow 80`              |
-| Open port 443 (HTTPS)    | `ufw allow 443`             |
+| Open port 42 (ssh)       | `ufw allow 42`              |
+| Open port 80 (http)      | `ufw allow 80`              |
+| Open port 443 (https)    | `ufw allow 443`             |
 | Close virtual machine    | `shutdown now`              |
 
 #### Port Forwarding
 | Name    | Protocol | Host IP | Host Port | Guest IP | Guest Port |
 | ------- | -------- | ------- | --------- | -------- | ---------- |
-| `SSH`   | `TCP`    | `<empty>` | `42`    | `<empty>`| `42`       |
-| `HTTP`  | `TCP`    | `<empty>` | `80`    | `<empty>`| `80`       |
-| `HTTPS` | `TCP`    | `<empty>` | `443`   | `<empty>`| `443`      |
+| `ssh`   | `TCP`    | `<empty>` | `42`    | `<empty>`| `42`       |
+| `http`  | `TCP`    | `<empty>` | `80`    | `<empty>`| `80`       |
+| `https` | `TCP`    | `<empty>` | `443`   | `<empty>`| `443`      |
 
 #### Login with the OS terminal
 | Steps                                          | Command                          |
 | ---------------------------------------------- | -------------------------------- |
-| Login with SSH (NAT)                           | `ssh root@localhost -p 42`       | 
-| Login with SSH (Bridged Adapter)               | `ssh root@<vm_ip_address> -p 42` |
-| Check for known SSH hosts                      | `cat ~/.ssh/known_hosts`         |
+| Login with ssh (NAT)                           | `ssh root@localhost -p 42`       | 
+| Login with ssh (Bridged Adapter)               | `ssh root@<vm_ip_address> -p 42` |
+| Check for known ssh hosts                      | `cat ~/.ssh/known_hosts`         |
 
 - - - -
 
