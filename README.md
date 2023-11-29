@@ -234,10 +234,10 @@
 | Steps                            | Description                                      |
 | -------------------------------- | ------------------------------------------------ |
 | Create .sh file                  | `nano make_inception.sh`                         |
-| Paste script code                | *(Refer to the provided bash script bellow)*     |
-| Save and exit                    | `Ctrl` + `X` > `Y` > `Enter`                     |
+| Copy and past the bash code      | *(Paste the provided bash code bellow)*          |
+| Save and exit                    | `Ctrl + X` > `Y` > `Enter`                       |
 | Give permissions to file         | `chmod 777 make_inception.sh`                    |
-| Run script                       | `./make_inception.sh`                            |
+| Run .sh file                     | `./make_inception.sh`                            |
 
 ```bash
 #!/bin/bash
