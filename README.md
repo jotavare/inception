@@ -226,7 +226,7 @@
 | Switch user                       | `su <intra_user>`                                                       |
 | Go to home directory              | `cd ~/`                                                                 |
 | Download Docker sample            | `git clone https://github.com/codesshaman/simple_docker_nginx_html.git` |
-| Change directory and build Docker | `cd simple_docker_nginx_html/ && docker-compose up -d && cd ..`         |  
+| Change directory and build Docker | `cd simple_docker_nginx_html/ && docker-compose up -d && cd ~/`         |  
 | Open browser and write in the URL | `172.0.0.1` (NAT) or `<vm_ip_adress>` (Bridged Adapter)                 |
 | Verify website                    | It should display `My html config is work!`                             |
 
@@ -309,7 +309,7 @@ curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep br
 | Edit hosts file                      | `sudo nano /etc/hosts`                                                   |
 | If NAT configuration do              | Change `127.0.0.1 localhost` to `127.0.0.1 <intra_user>.42.fr localhost` |
 | If Bridged Adapter configuration do  | Add `<vm_ip_address> <intra_user>.42.fr`                                 |
-| Start Docker                         | `cd ~/simple_docker_nginx_html/ && docker-compose up -d`                 |
+| Start Docker                         | `cd ~/simple_docker_nginx_html/ && docker-compose up -d && cd ~/`        |
 | Start GUI                            | `sudo startx`                                                            |
 | Open Firefox in VM                   | `Right Click` > `Open Firefox`                                           |
 | Type the following URL               | `http://<intra_user>.42.fr/`                                             |
@@ -361,12 +361,12 @@ server {
 ```
 
 #### Reconfigure Docker YML File
-| Steps                          | Description                                                    |
-| ------------------------------ | -------------------------------------------------------------- |
-| Stop Docker                    | `cd ~/simple_docker_nginx_html/ && docker-compose down`        |
-| Edit Docker YML File           | `nano docker-compose.yml`                                      |
-| In the volume section add      | `/home/${USER}/project/srcs/requirements/tools:/etc/nginx/ssl` |
-| In the ports section add       | `"443:443"`                                                    |
+| Steps                          | Description                                                      |
+| ------------------------------ | ---------------------------------------------------------------- |
+| Stop Docker                    | `cd ~/simple_docker_nginx_html/ && docker-compose down && cd ~/` |
+| Edit Docker YML File           | `nano docker-compose.yml`                                        |
+| In the volume section add      | `/home/${USER}/project/srcs/requirements/tools:/etc/nginx/ssl`   |
+| In the ports section add       | `"443:443"`                                                      |
 
 #### Run Project Via HTTPS With GUI
 | Steps                          | Description                                                 |
