@@ -211,7 +211,7 @@
 | Steps                                      | Description                                      |
 | ------------------------------------------ | ------------------------------------------------ |
 | Open sudoers file                          | `nano /etc/sudoers`                              |
-| Under `# User privilege specification` add | `<intra_user> ALL=(ALL:ALL) ALL`                 |
+| Under `# User privilege specification`     | Add `<intra_user> ALL=(ALL:ALL) ALL`             |
 | Save and exit                              | `Ctrl + X` > `Y` > `Enter`                       |
 
 #### Add User to Docker Group
@@ -240,7 +240,7 @@
 | Run .sh file                     | `./make_inception.sh`                            |
 
 > [!WARNING]
-> Change `<intra_user>` to your username. There are two instances.
+> Change `<intra_user>` to your username. There are three instances.
 ```sh
 #!/bin/bash
 mkdir project
@@ -249,7 +249,7 @@ touch project/Makefile
 mkdir project/srcs/requirements
 touch project/srcs/docker-compose.yml
 touch project/srcs/.env
-echo "DOMAIN_NAME=<your_nickname>.42.fr" > project/srcs/.env
+echo "DOMAIN_NAME=<intra_user>.42.fr" > project/srcs/.env
 echo "CERT_=./requirements/tools/<intra_user>.42.fr.crt" >> project/srcs/.env
 echo "KEY_=./requirements/tools/<intra_user>.42.fr.key" >> project/srcs/.env
 echo "DB_NAME=wordpress" >> project/srcs/.env
@@ -307,8 +307,8 @@ curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep br
 | Steps                                | Description                                                              |
 | ------------------------------------ | ------------------------------------------------------------------------ |
 | Edit hosts file                      | `sudo nano /etc/hosts`                                                   |
-| If NAT configuration do              | Change `127.0.0.1 localhost` to `127.0.0.1 <intra_user>.42.fr localhost` |
-| If Bridged Adapter configuration do  | Add `<vm_ip_address> <intra_user>.42.fr`                                 |
+| NAT configuration                    | Change `127.0.0.1 localhost` to `127.0.0.1 <intra_user>.42.fr localhost` |
+| Bridged Adapter configuration        | Add `<vm_ip_address> <intra_user>.42.fr`                                 |
 | Start Docker                         | `cd ~/simple_docker_nginx_html/ && docker-compose up -d && cd ~/`        |
 | Start GUI                            | `sudo startx`                                                            |
 | Open Firefox in VM                   | `Right Click` > `Open Firefox`                                           |
