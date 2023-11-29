@@ -2,6 +2,8 @@
 - [VirtualBox](https://www.virtualbox.org/) `Website`
 - [Debian](https://www.debian.org/) `Website`
 
+- - - -
+
 ### CREATE A NEW VIRTUAL MACHINE
 #### Name and operating system
 - **Name:** `inception`
@@ -35,16 +37,18 @@
 > [!NOTE]
 > You can add more processor cores to the virtual machine if needed. Settings > System > Processor.
 
+- - - -
+
 ### INSTALL DEBIAN OS
-`TAB` - moves
-`Space` - selects
-`Enter` - confirm
+- `TAB` - move
+- `Space` - select
+- `Enter` - confirm
 
 #### Debian GNU/Linux installer menu (BIOS mode)
 - [ ] Graphic Install
 - [x] Install
 - [ ] Advanced options
-- [ ] Acessible dark contrast installer menu
+- [ ] Accessible dark contrast installer menu
 - [ ] Help
 - [ ] Install with speech synthesis
 
@@ -76,39 +80,39 @@
 - [ ] Azores
 
 #### Partition method
-- [x] Guided - use entire disk
-- [ ] Guided - use entire disk and set up LVM
-- [ ] Guided - use entire disk and set up encrypted LVM
-- [ ] Manual
+- [x] `Guided - use entire disk`
+- [ ] `Guided - use entire disk and set up LVM`
+- [ ] `Guided - use entire disk and set up encrypted LVM`
+- [ ] `Manual`
 
 #### Select disk to partition
-- [x] SCSI3 (0,0,0) (sda) - 8.6 GB ATA VBOX HARDISK
+- [x] `SCSI3 (0,0,0) (sda) - 8.6 GB ATA VBOX HARDISK`
 
 #### Partition scheme
-- [x] All files in one partition (recommended for new users)
+- [x] `All files in one partition (recommended for new users)`
 
 #### Partition disks
-- [x] Finish partitioning and write changes to disk
+- [x] `Finish partitioning and write changes to disk`
 - [x] Write the changes to disks? `Yes`
 
 #### Configure the package manager
 - [x] Scan extra installation media? `No`
-- [x] Portugal
-- [x] deb.debian.org
-- [ ] HTTP proxy information (blank for none): `<empty>`
+- [x] `Portugal`
+- [x] `deb.debian.org`
+- [x] HTTP proxy information (blank for none): `<empty>`
 
 #### Configure popularity-contest
 - Participate in the package usage survey? `No`
 
 #### Software selection
-- [x] SSH server
+- [x] `SSH server`
 
 #### Install the GRUB boot loader
-- Install the GRUB boot loader ot your primary drive? `Yes`
+- Install the GRUB boot loader to your primary drive? `Yes`
 
 #### Configuring grub-pc
 - [ ] Enter device manually
-- [x] /dev/sda (ata-VBOX_HARDISK_VB2e44d73e-45a0c522)
+- [x] `/dev/sda (ata-VBOX_HARDISK_VB2e44d73e-45a0c522)`
 
 #### Finish the installations
 - [ ] `Continue`
