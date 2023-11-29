@@ -239,7 +239,7 @@
 | Give permissions to file         | `chmod 777 make_inception.sh`                    |
 | Run .sh file                     | `./make_inception.sh`                            |
 
-```bash
+```
 #!/bin/bash
 mkdir project
 mkdir project/srcs
@@ -291,11 +291,15 @@ echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 |-------------------------------------------|-------------------------------------------------|
 | Update list of repositories               | `sudo apt update -y`                            |
 | Install utilities for mkcert              | `sudo apt install -y wget curl libnss3-tools`   |
-| Download mkcert binary                    | curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest | grep browser_download_url  | grep linux-amd64 | cut -d '"' -f 4 | wget -qi - |
+| Download mkcert binary                    | *(Copy and paste the command bellow)*           |
 | Rename the binary                         | `mv mkcert-v*-linux-amd64 mkcert`               |
 | Give all permissions                      | `chmod 777 mkcert`                              |
 | Move mkcert to bin directory              | `sudo mv mkcert /usr/local/bin/`                |
 | Check mkcert version                      | `mkcert --version`                              |
+
+```
+curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep browser_download_url  | grep linux-amd64 | cut -d '"' -f 4 | wget -qi -
+```
 
 ### Change Local Domain
 | Steps                          | Description                                              |
