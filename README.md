@@ -240,8 +240,8 @@
 | Run .sh file                     | `./make_inception.sh`                            |
 
 > [!WARNING]
-> Change <intra_user> to your username.
-```
+> Change `<intra_user>` to your username.
+```sh
 #!/bin/bash
 mkdir project
 mkdir project/srcs
