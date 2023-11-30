@@ -313,6 +313,9 @@ echo ".git" > project/srcs/requirements/wordpress/.dockerignore
 echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 ```
 
+> [!TIP]
+> Don't forget to take a snapshot and save it in the cloud.
+
 - - - -
 
 ### CHANGE DOMAIN AND INSTALL CERTIFICATES
@@ -405,5 +408,47 @@ server {
 | Start GUI                      | `sudo startx`                                                     |
 | Open Firefox in VM             | Check the browser for self-signed certificate                     |
 | Type the following URL         | `<intra_user>.42.fr` or `127.0.0.1` or `<vm_ip_adress>`           |
+
+------
+
+### MAKEFILE
+
+|                                   |                                                                   |
+| --------------------------------- | ----------------------------------------------------------------- |
+| Create Makefile                   | `nano ~/simple_docker_nginx_html/Makefile`                        |
+| Copy and paste the Makefile rules | *(Copy and paste the provided configuration code bellow)*         |
+
+```bash
+name = simple_nginx_html
+
+all:
+        @printf "Running the configuration ${name}...\n"
+        @docker-compose -f ./docker-compose.yml up -d
+
+build:
+        @printf "Assembling the configuration ${name}...\n"
+        @docker-compose -f ./docker-compose.yml up -d --build
+
+down:
+        @printf "Stopping the configuration ${name}...\n"
+        @docker-compose -f ./docker-compose.yml down
+
+re:
+        @printf "Rebuilding the configuration ${name}...\n"
+        @docker-compose -f ./docker-compose.yml up -d --build
+
+clean: down
+        @printf "Cleaning the configuration ${name}...\n"
+        @docker system prune -a
+
+fclean:
+        @printf "Complete cleanup of all docker configurations...\n"
+        @docker stop $$(docker ps -qa)
+        @docker system prune --all --force --volumes
+        @docker network prune --force
+        @docker volume prune --force
+
+.PHONY: all build down re clean clean
+```
 
 ------
