@@ -269,6 +269,7 @@
 
 > [!WARNING]
 > Change `<intra_user>` to your username. There are three instances.
+> Use search (to replace) - `CTRL + \`.
 ```sh
 #!/bin/bash
 mkdir project
