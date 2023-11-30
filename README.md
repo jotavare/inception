@@ -133,13 +133,13 @@
 - [x] Scan extra installation media? `No`
 - [x] `Portugal`
 - [x] `deb.debian.org`
-- [x] HTTP proxy information (blank for none): `<empty>`
+- [x] HTTP proxy information (blank for none): `<empty>` `Continue`
 
 #### Configure Popularity-Contest
 - [x] Participate in the package usage survey? `No`
 
 #### Software Selection
-- [x] `SSH server`
+- [x] Select only `SSH server`
 
 #### Install the GRUB Boot Loader
 - [x] Install the GRUB boot loader to your primary drive? `Yes`
