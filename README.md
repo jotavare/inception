@@ -152,6 +152,25 @@
 
 - - - -
 
+### SAVE THE CONFIGURATION
+#### Create Snapshot
+- Open the VirtualBox;
+- `Left Click` on top of the icon of your VM and choose `Snapshots`;
+- Click on `Take`;
+- Write a name for future reference;
+
+#### Save on Cloud
+- Go to the VirtualBox folder and compress the `Inception` folder;
+- Also you can use the `Export` function in VirtualBox;
+- Upload to the internet, usually 1-2 GB;
+
+#### Open on a Different PC
+- Find the main folder of VirtualBox virtual machines;
+- Uncompress the files inside the folder;
+- Open VirtualBox and everything should appear correctly;
+
+- - - -
+
 ### INSTALL NECESSARY SOFTWARE
 |                        |                                                                                      |
 | ---------------------- | ------------------------------------------------------------------------------------ |
@@ -163,6 +182,9 @@
 | Test Firefox           | `Right Click` > `Applications` > `Internet` > `Firefox ESR`                          |
 | Test terminal          | `Right Click` > `Applications` > `System` > `kitty`                                  |
 | Close GUI              | `Right Click` > `Exit`                                                               |
+
+> [!TIP]
+> Don't forget to take a snapshot and save it in the cloud.
 
 - - - -
 
@@ -208,24 +230,8 @@
 | Check for known ssh hosts   | `cat ~/.ssh/known_hosts`             |
 | Display socket information  | `ss -tunlp`                          |
 
-- - - -
-
-### SAVE THE CONFIGURATION
-#### Create Snapshot
-- Open the VirtualBox;
-- `Left Click` on top of the icon of your VM and choose `Snapshots`;
-- Click on `Take`;
-- Write a name for future reference;
-
-#### Save on Cloud
-- Go to the VirtualBox folder and compress the `Inception` folder;
-- Also you can use the `Export` function in VirtualBox;
-- Upload to the internet, usually 1-2 GB;
-
-#### Open on a Different PC
-- Find the main folder of VirtualBox virtual machines;
-- Uncompress the files inside the folder;
-- Open VirtualBox and everything should appear correctly;
+> [!TIP]
+> Don't forget to take a snapshot and save it in the cloud.
 
 - - - -
 
