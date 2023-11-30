@@ -482,7 +482,7 @@ CMD	["nginx", "-g", "daemon off;"]
 |                                                 |                                                                                   |
 | ----------------------------------------------- | --------------------------------------------------------------------------------- |
 | Create our config file `nginx.conf`             | `nano conf/nginx.conf`                                                            |
-| Copy and paste                                  | (copy and paste the code below)                                                   |
+| Copy and paste                                  | *(copy and paste the code below)*                                                 |
 | Copy certificate keys to the nginx tools folder | `cp ~/project/srcs/requirements/tools/* ~/project/srcs/requirements/nginx/tools/` |
 
 ```bash
@@ -519,7 +519,7 @@ server {
 |                                 |                                                          |
 | ------------------------------- |--------------------------------------------------------- |
 | Open `docker-compose.yml`       | `cd ../../ && nano docker-compose.yml`                   |
-| Copy and paste                  | (Copy and paste the code below)                          |
+| Copy and paste                  | *(Copy and paste the code below)*                        |
 | Turn off test configuration     | `cd ~/simple_docker_nginx_html/ && docker-compose down`  |
 | Launch the new configuration    | `cd ~/project/srcs/ && docker-compose up -d`             |
 | Access via HTTPS                | `https://127.0.0.1` in the browser                       |
