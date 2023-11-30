@@ -172,7 +172,7 @@
 |                                           |                                                                |
 | ----------------------------------------- | -------------------------------------------------------------- |
 | Edit sshd_config file                     | `nano /etc/ssh/sshd_config`                                    |
-| Change ssh port to 22 or 42               | `#Port 22` to `Port 22` or `Port 42`                           |
+| Change ssh port to 4242                   | `#Port 22` to `Port 4242`                                      |
 | Enable root login                         | `#PermitRootLogin prohibit-password` to `PermitRootLogin yes`  |
 | Enable password authentication (Optional) | `#PasswordAuthentication yes` to `PasswordAuthentication yes`  |
 | Save and exit sshd_config file            | `Ctrl + X` > `Y` > `Enter`                                     |
@@ -187,31 +187,27 @@
 #### Configure Firewall
 |                          |                                  |
 | ------------------------ | -------------------------------- |
-| Check status             | `ufw status` or `ss -tunlp`      |
+| Check status             | `ufw status`                     |
 | Enable ufw               | `ufw enable`                     |
-| Open port 22 or 42 (ssh) | `ufw allow 22` or `ufw allow 42` | 
+| Open port 4242 (ssh)     | `ufw allow 4242`                 | 
 | Open port 80 (http)      | `ufw allow 80`                   |
 | Open port 443 (https)    | `ufw allow 443`                  |
 | Close virtual machine    | `shutdown now`                   |
 
 #### Port Forwarding
-| Name    | Protocol | Host IP | Host Port | Guest IP | Guest Port |
-| ------- | -------- | ------- | --------- | -------- | ---------- |
-| `ssh`   | `TCP`    | `<empty>` | `42`    | `<empty>`| `42`       |
-| `http`  | `TCP`    | `<empty>` | `80`    | `<empty>`| `80`       |
-| `https` | `TCP`    | `<empty>` | `443`   | `<empty>`| `443`      |
-
-#### Change Network Adapter
-|                                         |                                                            |
-| --------------------------------------- | ---------------------------------------------------------- |
-| Ignore this step if you using localhost | `Settings` > `Network` > Change `NAT` to `Bridged Adapter` |
+| Name    | Protocol | Host IP     | Host Port    | Guest IP    | Guest Port   |
+| ------- | -------- | ----------- | ------------ | ----------- | ------------ |
+| `ssh`   | `TCP`    | `127.0.0.1` | `4242`       | `10.0.2.15` | `4242`       |
+| `http`  | `TCP`    | `<empty>`   | `80`         | `<empty>`   | `80`         |
+| `https` | `TCP`    | `<empty>`   | `443`        | `<empty>`   | `443`        |
 
 #### Login with the OS terminal
-|                                                |                                  |
-| ---------------------------------------------- | -------------------------------- |
-| Open VM and check the ip adress                | `ip a` or `hostname -I`          |
-| Login with ssh (NAT or Bridged Adapter)        | `ssh root@localhost -p 42` or `ssh root@<vm_ip_address> -p 42` |
-| Check for known ssh hosts                      | `cat ~/.ssh/known_hosts`         |
+|                             |                                      |
+| --------------------------- | ------------------------------------ |
+| Login with ssh              | `ssh root@localhost -p 4242`         |
+| Check the ip adress         | `ip a` or `hostname -I`              |
+| Check for known ssh hosts   | `cat ~/.ssh/known_hosts`             |
+| Display socket information  | `ss -tunlp`                          |
 
 - - - -
 
