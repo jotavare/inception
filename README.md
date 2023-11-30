@@ -268,8 +268,7 @@
 | Run .sh file                     | `./make_inception.sh`                            |
 
 > [!WARNING]
-> Change `<intra_user>` to your username. There are three instances.
-> Use search (to replace) - `CTRL + \`.
+> Change `<intra_user>` to your username. There are three instances. `CTRL + \` to search and replace.
 ```sh
 #!/bin/bash
 mkdir project
@@ -358,7 +357,7 @@ curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep br
 | Paste configuration code       | *(Copy and paste the provided configuration code bellow)* |
 
 > [!WARNING]
-> Change `<intra_user>` to your username. There are five instances.
+> Change `<intra_user>` to your username. There are three instances. `CTRL + \` to search and replace.
 ```bash
 server {
     # Listen on port http
