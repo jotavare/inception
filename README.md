@@ -452,3 +452,97 @@ fclean:
 ```
 
 ------
+
+### CREATING AN NGINX CONTAINER
+#### Software Used
+|            |                                        |      |
+| ---------- | -------------------------------------- |----- |
+| Nginx      | Proxying Web Server                    | 443  |
+| PHP        | Scripting language for the web         | -    |
+| Php-Fpm    | A set of libraries for the FastCGI API | 9000 |
+| WordPress  | Content Management System              | -    |
+| MariaDB    | Relational Database                    | 3306 |
+
+#### Create a Dockerfile
+|                               |                                                            |
+| ----------------------------- |----------------------------------------------------------- |
+| Go to the folder of our nginx | `cd ~/project/srcs/requirements/nginx/`                    |
+| Create a Dockerfile in it     | `nano Dockerfile`                                          |
+| Copy and paste                | (copy and paste the code below)                            |
+| Check latest alpine version   | Visit [Alpine Linux website](https://www.alpinelinux.org/) |
+
+```bash
+FROM	alpine:3.16
+RUN	apk update && apk upgrade && apk add --no-cache nginx
+EXPOSE	443
+CMD	["nginx", "-g", "daemon off;"]
+```
+
+#### Create a Configuration File
+|                                                 |                                                                                   |
+| ----------------------------------------------- | --------------------------------------------------------------------------------- |
+| Create our config file `nginx.conf`             | `nano conf/nginx.conf`                                                            |
+| Copy and paste                                  | (copy and paste the code below)                                                   |
+| Copy certificate keys to the nginx tools folder | `cp ~/project/srcs/requirements/tools/* ~/project/srcs/requirements/nginx/tools/` |
+
+```bash
+server {
+    listen      443 ssl;
+    server_name  <intra_user>.42.fr www.<intra_user>.42.fr;
+    root    /var/www/;
+    index index.php index.html;
+    ssl_certificate     /etc/nginx/ssl/<intra_user>.42.fr.crt;
+    ssl_certificate_key /etc/nginx/ssl/<intra_user>.42.fr.key;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_session_timeout 10m;
+    keepalive_timeout 70;
+    location / {
+        try_files $uri /index.php?$args /index.html;
+        add_header Last-Modified $date_gmt;
+        add_header Cache-Control 'no-store, no-cache';
+        if_modified_since off;
+        expires off;
+        etag off;
+    }
+#    location ~ \.php$ {
+#        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+#        fastcgi_pass wordpress:9000;
+#        fastcgi_index index.php;
+#        include fastcgi_params;
+#        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+#        fastcgi_param PATH_INFO $fastcgi_path_info;
+#    }
+}
+```
+
+#### Creating a docker-compose Configuration
+|                                 |                                                          |
+| ------------------------------- |--------------------------------------------------------- |
+| Open `docker-compose.yml`       | `cd ../../ && nano docker-compose.yml`                   |
+| Copy and paste                  | (Copy and paste the code below)                          |
+| Turn off test configuration     | `cd ~/simple_docker_nginx_html/ && docker-compose down`  |
+| Launch the new configuration    | `cd ~/project/srcs/ && docker-compose up -d`             |
+| Access via HTTPS                | `https://127.0.0.1` in the browser                       |
+|                                 | `https://<intra_user>.42.fr` in the GUI                  |
+
+```bash
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: requirements/nginx/Dockerfile
+    container_name: nginx
+#    depends_on:
+#      - wordpress
+    ports:
+      - "443:443"
+    volumes:
+      - ./requirements/nginx/conf/:/etc/nginx/http.d/
+      - ./requirements/nginx/tools:/etc/nginx/ssl/
+      - /home/${USER}/simple_docker_nginx_html/public/html:/var/www/
+    restart: always
+```
+
+- - - -
