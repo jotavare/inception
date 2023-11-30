@@ -3,7 +3,6 @@
 </p>
 
 <p align="center">
-	<img src="https://img.shields.io/github/languages/top/jotavare/inception?color=%2312bab9&style=flat-square"/>
 	<img src="https://img.shields.io/github/last-commit/jotavare/inception?color=%2312bab9&style=flat-square"/>
 	<a href='https://www.linkedin.com/in/joaoptoliveira' target="_blank"><img alt='Linkedin' src='https://img.shields.io/badge/LinkedIn-100000?style=flat-square&logo=Linkedin&logoColor=white&labelColor=0A66C2&color=0A66C2'/></a>
 	<a href='https://profile.intra.42.fr/users/jotavare' target="_blank"><img alt='42' src='https://img.shields.io/badge/Porto-100000?style=flat-square&logo=42&logoColor=white&labelColor=000000&color=000000'/></a>
@@ -31,7 +30,7 @@
 #### Name and Operating System
 |                |                                     |
 | -------------- | ----------------------------------- |
-| Name           | `Inception`                         |
+| Name           | `inception`                         |
 | Machine Folder | `/home/<intra_user>/VirtualBox VMs` |
 | Type           | `Linux`                             |
 | Version        | `Debian (64-bit)`                   |
@@ -97,7 +96,7 @@
 #### Configure the Network
 |             |             |
 | ----------- | ----------- |
-| Hostname    | `Inception` |
+| Hostname    | `inception` |
 | Domain Name | `<empty>`   |
 
 #### Set Up Users and Passwords
@@ -133,13 +132,13 @@
 - [x] Scan extra installation media? `No`
 - [x] `Portugal`
 - [x] `deb.debian.org`
-- [x] HTTP proxy information (blank for none): `<empty>`
+- [x] HTTP proxy information (blank for none): `<empty>` `Continue`
 
 #### Configure Popularity-Contest
 - [x] Participate in the package usage survey? `No`
 
 #### Software Selection
-- [x] `SSH server`
+- [x] Select only `SSH server`
 
 #### Install the GRUB Boot Loader
 - [x] Install the GRUB boot loader to your primary drive? `Yes`
@@ -153,17 +152,40 @@
 
 - - - -
 
+### SAVE THE CONFIGURATION
+#### Create Snapshot
+- Open the VirtualBox;
+- `Left Click` on top of the right icon of your VM;
+- Click on `Snapshots`;
+- Click on `Take`;
+- Write a name for future reference;
+
+#### Save on Cloud
+- Go to the VirtualBox folder and compress the `inception` folder;
+- Also you can use the `Export` function in VirtualBox;
+- Upload to the internet, usually 1-2 GB;
+
+#### Open on a Different PC
+- Find the main folder of VirtualBox virtual machines;
+- Copy and uncompress the files inside the folder;
+- Open VirtualBox and everything should appear correctly;
+
+- - - -
+
 ### INSTALL NECESSARY SOFTWARE
 |                        |                                                                                      |
 | ---------------------- | ------------------------------------------------------------------------------------ |
-| Inception login        | `root`                                                                               |
+| inception login        | `root`                                                                               |
 | Password               | `<insert_password>`                                                                  |
 | Update repository list | `apt update`                                                                         |
 | Install necessary apps | `apt install -y sudo ufw docker docker-compose make openbox xinit kitty firefox-esr` |
-| Run GUI                | `startx` > `Right Click` > `Applications`                                            |
-| Open Firefox           | `Internet` > `Firefox ESR`                                                           |
-| Open terminal          | `System` > `kitty`                                                                   |
+| Run GUI                | `startx`                                                                             |
+| Test Firefox           | `Right Click` > `Applications` > `Internet` > `Firefox ESR`                          |
+| Test terminal          | `Right Click` > `Applications` > `System` > `kitty`                                  |
 | Close GUI              | `Right Click` > `Exit`                                                               |
+
+> [!TIP]
+> Don't forget to take a snapshot and save it in the cloud.
 
 - - - -
 
@@ -172,7 +194,7 @@
 |                                           |                                                                |
 | ----------------------------------------- | -------------------------------------------------------------- |
 | Edit sshd_config file                     | `nano /etc/ssh/sshd_config`                                    |
-| Change ssh port to 42                     | `#Port 22` to `Port 22` or `Port 42`                           |
+| Change ssh port to 4242                   | `#Port 22` to `Port 4242`                                      |
 | Enable root login                         | `#PermitRootLogin prohibit-password` to `PermitRootLogin yes`  |
 | Enable password authentication (Optional) | `#PasswordAuthentication yes` to `PasswordAuthentication yes`  |
 | Save and exit sshd_config file            | `Ctrl + X` > `Y` > `Enter`                                     |
@@ -185,51 +207,32 @@
 | Check SSH status  | `service ssh status`       |
 
 #### Configure Firewall
-|                          |                             |
-| ------------------------ | --------------------------- |
-| Check status             | `ufw status` or `ss -tunlp` |
-| Enable ufw               | `ufw enable`                |
-| Open port 42 (ssh)       | `ufw allow 42`              |
-| Open port 80 (http)      | `ufw allow 80`              |
-| Open port 443 (https)    | `ufw allow 443`             |
-| Close virtual machine    | `shutdown now`              |
+|                          |                                  |
+| ------------------------ | -------------------------------- |
+| Check status             | `ufw status`                     |
+| Enable ufw               | `ufw enable`                     |
+| Open port 4242 (ssh)     | `ufw allow 4242`                 | 
+| Open port 80 (http)      | `ufw allow 80`                   |
+| Open port 443 (https)    | `ufw allow 443`                  |
+| Close virtual machine    | `shutdown now`                   |
 
 #### Port Forwarding
-| Name    | Protocol | Host IP | Host Port | Guest IP | Guest Port |
-| ------- | -------- | ------- | --------- | -------- | ---------- |
-| `ssh`   | `TCP`    | `<empty>` | `42`    | `<empty>`| `42`       |
-| `http`  | `TCP`    | `<empty>` | `80`    | `<empty>`| `80`       |
-| `https` | `TCP`    | `<empty>` | `443`   | `<empty>`| `443`      |
-
-#### Change Network Adapter
-|                                        |                                                            |
-| -------------------------------------- | ---------------------------------------------------------- |
-| Change virtual machine network adapter | `Settings` > `Network` > Change `NAT` to `Bridged Adapter` |
+| Name    | Protocol | Host IP     | Host Port    | Guest IP    | Guest Port   |
+| ------- | -------- | ----------- | ------------ | ----------- | ------------ |
+| `ssh`   | `TCP`    | `127.0.0.1` | `4242`       | `10.0.2.15` | `4242`       |
+| `http`  | `TCP`    | `<empty>` | `80`         | `<empty>` | `80`         |
+| `https` | `TCP`    | `<empty>` | `443`        | `<empty>` | `443`        |
 
 #### Login with the OS terminal
-|                                                |                                  |
-| ---------------------------------------------- | -------------------------------- |
-| Login with ssh (NAT or Bridged Adapter)        | `ssh root@localhost -p 42` or `ssh root@<vm_ip_address> -p 42` |
-| Check for known ssh hosts                      | `cat ~/.ssh/known_hosts`         |
+|                                        |                                      |
+| -------------------------------------- | ------------------------------------ |
+| Start VM and login with ssh on host pc | `ssh root@localhost -p 4242`         |
+| Check the ip adress                    | `ip a` or `hostname -I`              |
+| Check for known ssh hosts              | `cat ~/.ssh/known_hosts`             |
+| Display socket information             | `ss -tunlp`                          |
 
-- - - -
-
-### SAVE THE CONFIGURATION
-#### Create Snapshot
-- Open the VirtualBox;
-- `Left Click` on top of the icon of your VM and choose `Snapshots`;
-- Click on `Take`;
-- Write a name for future reference;
-
-#### Save on Cloud
-- Go to the VirtualBox folder and compress the `Inception` folder;
-- Also you can use the `Export` function in VirtualBox;
-- Upload to the internet, usually 1-2 GB;
-
-#### Open on a Different PC
-- Find the main folder of VirtualBox virtual machines;
-- Uncompress the files inside the folder;
-- Open VirtualBox and everything should appear correctly;
+> [!TIP]
+> Don't forget to take a snapshot and save it in the cloud.
 
 - - - -
 
@@ -267,7 +270,7 @@
 | Run .sh file                     | `./make_inception.sh`                            |
 
 > [!WARNING]
-> Change `<intra_user>` to your username. There are three instances.
+> Change `<intra_user>` to your username. There are three instances. `CTRL + \` to search and replace.
 ```sh
 #!/bin/bash
 mkdir project
@@ -311,6 +314,9 @@ touch project/srcs/requirements/wordpress/.dockerignore
 echo ".git" > project/srcs/requirements/wordpress/.dockerignore
 echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 ```
+
+> [!TIP]
+> Don't forget to take a snapshot and save it in the cloud.
 
 - - - -
 
@@ -356,7 +362,7 @@ curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep br
 | Paste configuration code       | *(Copy and paste the provided configuration code bellow)* |
 
 > [!WARNING]
-> Change `<intra_user>` to your username. There are five instances.
+> Change `<intra_user>` to your username. There are three instances. `CTRL + \` to search and replace.
 ```bash
 server {
     # Listen on port http
@@ -406,3 +412,139 @@ server {
 | Type the following URL         | `<intra_user>.42.fr` or `127.0.0.1` or `<vm_ip_adress>`           |
 
 ------
+
+### MAKEFILE
+
+|                                   |                                                                   |
+| --------------------------------- | ----------------------------------------------------------------- |
+| Create Makefile                   | `nano ~/simple_docker_nginx_html/Makefile`                        |
+| Copy and paste the Makefile rules | *(Copy and paste the provided configuration code bellow)*         |
+
+```bash
+name = simple_nginx_html
+
+all:
+        @printf "Running the configuration ${name}...\n"
+        @docker-compose -f ./docker-compose.yml up -d
+
+build:
+        @printf "Assembling the configuration ${name}...\n"
+        @docker-compose -f ./docker-compose.yml up -d --build
+
+down:
+        @printf "Stopping the configuration ${name}...\n"
+        @docker-compose -f ./docker-compose.yml down
+
+re:
+        @printf "Rebuilding the configuration ${name}...\n"
+        @docker-compose -f ./docker-compose.yml up -d --build
+
+clean: down
+        @printf "Cleaning the configuration ${name}...\n"
+        @docker system prune -a
+
+fclean:
+        @printf "Complete cleanup of all docker configurations...\n"
+        @docker stop $$(docker ps -qa)
+        @docker system prune --all --force --volumes
+        @docker network prune --force
+        @docker volume prune --force
+
+.PHONY: all build down re clean clean
+```
+
+------
+
+### CREATING AN NGINX CONTAINER
+#### Software Used
+|            |                                        |      |
+| ---------- | -------------------------------------- |----- |
+| Nginx      | Proxying Web Server                    | 443  |
+| PHP        | Scripting language for the web         | -    |
+| Php-Fpm    | A set of libraries for the FastCGI API | 9000 |
+| WordPress  | Content Management System              | -    |
+| MariaDB    | Relational Database                    | 3306 |
+
+#### Create a Dockerfile
+|                               |                                                            |
+| ----------------------------- |----------------------------------------------------------- |
+| Go to the folder of our nginx | `cd ~/project/srcs/requirements/nginx/`                    |
+| Create a Dockerfile in it     | `nano Dockerfile`                                          |
+| Copy and paste                | (copy and paste the code below)                            |
+| Check latest alpine version   | Visit [Alpine Linux website](https://www.alpinelinux.org/) |
+
+```bash
+FROM	alpine:3.16
+RUN	apk update && apk upgrade && apk add --no-cache nginx
+EXPOSE	443
+CMD	["nginx", "-g", "daemon off;"]
+```
+
+#### Create a Configuration File
+|                                                 |                                                                                   |
+| ----------------------------------------------- | --------------------------------------------------------------------------------- |
+| Create our config file `nginx.conf`             | `nano conf/nginx.conf`                                                            |
+| Copy and paste                                  | *(copy and paste the code below)*                                                 |
+| Copy certificate keys to the nginx tools folder | `cp ~/project/srcs/requirements/tools/* ~/project/srcs/requirements/nginx/tools/` |
+
+```bash
+server {
+    listen      443 ssl;
+    server_name  <intra_user>.42.fr www.<intra_user>.42.fr;
+    root    /var/www/;
+    index index.php index.html;
+    ssl_certificate     /etc/nginx/ssl/<intra_user>.42.fr.crt;
+    ssl_certificate_key /etc/nginx/ssl/<intra_user>.42.fr.key;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_session_timeout 10m;
+    keepalive_timeout 70;
+    location / {
+        try_files $uri /index.php?$args /index.html;
+        add_header Last-Modified $date_gmt;
+        add_header Cache-Control 'no-store, no-cache';
+        if_modified_since off;
+        expires off;
+        etag off;
+    }
+#    location ~ \.php$ {
+#        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+#        fastcgi_pass wordpress:9000;
+#        fastcgi_index index.php;
+#        include fastcgi_params;
+#        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+#        fastcgi_param PATH_INFO $fastcgi_path_info;
+#    }
+}
+```
+
+#### Creating a docker-compose Configuration
+|                                 |                                                          |
+| ------------------------------- |--------------------------------------------------------- |
+| Open `docker-compose.yml`       | `cd ../../ && nano docker-compose.yml`                   |
+| Copy and paste                  | *(Copy and paste the code below)*                        |
+| Turn off test configuration     | `cd ~/simple_docker_nginx_html/ && docker-compose down`  |
+| Launch the new configuration    | `cd ~/project/srcs/ && docker-compose up -d`             |
+| Access via HTTPS                | `https://127.0.0.1` in the browser                       |
+|                                 | `https://<intra_user>.42.fr` in the GUI                  |
+
+```bash
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: requirements/nginx/Dockerfile
+    container_name: nginx
+#    depends_on:
+#      - wordpress
+    ports:
+      - "443:443"
+    volumes:
+      - ./requirements/nginx/conf/:/etc/nginx/http.d/
+      - ./requirements/nginx/tools:/etc/nginx/ssl/
+      - /home/${USER}/simple_docker_nginx_html/public/html:/var/www/
+    restart: always
+```
+
+- - - -
