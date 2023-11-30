@@ -30,7 +30,7 @@
 #### Name and Operating System
 |                |                                     |
 | -------------- | ----------------------------------- |
-| Name           | `Inception`                         |
+| Name           | `inception`                         |
 | Machine Folder | `/home/<intra_user>/VirtualBox VMs` |
 | Type           | `Linux`                             |
 | Version        | `Debian (64-bit)`                   |
@@ -96,7 +96,7 @@
 #### Configure the Network
 |             |             |
 | ----------- | ----------- |
-| Hostname    | `Inception` |
+| Hostname    | `inception` |
 | Domain Name | `<empty>`   |
 
 #### Set Up Users and Passwords
@@ -155,18 +155,19 @@
 ### SAVE THE CONFIGURATION
 #### Create Snapshot
 - Open the VirtualBox;
-- `Left Click` on top of the icon of your VM and choose `Snapshots`;
+- `Left Click` on top of the right icon of your VM;
+- Click on `Snapshots`;
 - Click on `Take`;
 - Write a name for future reference;
 
 #### Save on Cloud
-- Go to the VirtualBox folder and compress the `Inception` folder;
+- Go to the VirtualBox folder and compress the `inception` folder;
 - Also you can use the `Export` function in VirtualBox;
 - Upload to the internet, usually 1-2 GB;
 
 #### Open on a Different PC
 - Find the main folder of VirtualBox virtual machines;
-- Uncompress the files inside the folder;
+- Copy and uncompress the files inside the folder;
 - Open VirtualBox and everything should appear correctly;
 
 - - - -
@@ -174,7 +175,7 @@
 ### INSTALL NECESSARY SOFTWARE
 |                        |                                                                                      |
 | ---------------------- | ------------------------------------------------------------------------------------ |
-| Inception login        | `root`                                                                               |
+| inception login        | `root`                                                                               |
 | Password               | `<insert_password>`                                                                  |
 | Update repository list | `apt update`                                                                         |
 | Install necessary apps | `apt install -y sudo ufw docker docker-compose make openbox xinit kitty firefox-esr` |
@@ -219,16 +220,16 @@
 | Name    | Protocol | Host IP     | Host Port    | Guest IP    | Guest Port   |
 | ------- | -------- | ----------- | ------------ | ----------- | ------------ |
 | `ssh`   | `TCP`    | `127.0.0.1` | `4242`       | `10.0.2.15` | `4242`       |
-| `http`  | `TCP`    | `<empty>`   | `80`         | `<empty>`   | `80`         |
-| `https` | `TCP`    | `<empty>`   | `443`        | `<empty>`   | `443`        |
+| `http`  | `TCP`    | `127.0.0.1` | `80`         | `10.0.2.15` | `80`         |
+| `https` | `TCP`    | `127.0.0.1` | `443`        | `10.0.2.15` | `443`        |
 
 #### Login with the OS terminal
-|                             |                                      |
-| --------------------------- | ------------------------------------ |
-| Login with ssh              | `ssh root@localhost -p 4242`         |
-| Check the ip adress         | `ip a` or `hostname -I`              |
-| Check for known ssh hosts   | `cat ~/.ssh/known_hosts`             |
-| Display socket information  | `ss -tunlp`                          |
+|                                        |                                      |
+| -------------------------------------- | ------------------------------------ |
+| Start VM and login with ssh on host pc | `ssh root@localhost -p 4242`         |
+| Check the ip adress                    | `ip a` or `hostname -I`              |
+| Check for known ssh hosts              | `cat ~/.ssh/known_hosts`             |
+| Display socket information             | `ss -tunlp`                          |
 
 > [!TIP]
 > Don't forget to take a snapshot and save it in the cloud.
