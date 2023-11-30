@@ -185,14 +185,14 @@
 | Check SSH status  | `service ssh status`       |
 
 #### Configure Firewall
-|                          |                               |
-| ------------------------ | ----------------------------- |
-| Check status             | `ufw status` or `ss -tunlp`   |
-| Enable ufw               | `ufw enable`                  |
-| Open port 22 or 42 (ssh) | `ufw allow 22` `ufw allow 42` | 
-| Open port 80 (http)      | `ufw allow 80`                |
-| Open port 443 (https)    | `ufw allow 443`               |
-| Close virtual machine    | `shutdown now`                |
+|                          |                                  |
+| ------------------------ | -------------------------------- |
+| Check status             | `ufw status` or `ss -tunlp`      |
+| Enable ufw               | `ufw enable`                     |
+| Open port 22 or 42 (ssh) | `ufw allow 22` or `ufw allow 42` | 
+| Open port 80 (http)      | `ufw allow 80`                   |
+| Open port 443 (https)    | `ufw allow 443`                  |
+| Close virtual machine    | `shutdown now`                   |
 
 #### Port Forwarding
 | Name    | Protocol | Host IP | Host Port | Guest IP | Guest Port |
