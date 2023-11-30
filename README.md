@@ -202,13 +202,14 @@
 | `https` | `TCP`    | `<empty>` | `443`   | `<empty>`| `443`      |
 
 #### Change Network Adapter
-|                                        |                                                            |
-| -------------------------------------- | ---------------------------------------------------------- |
-| Change virtual machine network adapter | `Settings` > `Network` > Change `NAT` to `Bridged Adapter` |
+|                                         |                                                            |
+| --------------------------------------- | ---------------------------------------------------------- |
+| Ignore this step if you using localhost | `Settings` > `Network` > Change `NAT` to `Bridged Adapter` |
 
 #### Login with the OS terminal
 |                                                |                                  |
 | ---------------------------------------------- | -------------------------------- |
+| Open VM and check the ip adress                | `ip a` or `hostname -I`          |
 | Login with ssh (NAT or Bridged Adapter)        | `ssh root@localhost -p 42` or `ssh root@<vm_ip_address> -p 42` |
 | Check for known ssh hosts                      | `cat ~/.ssh/known_hosts`         |
 
