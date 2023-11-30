@@ -160,9 +160,9 @@
 | Password               | `<insert_password>`                                                                  |
 | Update repository list | `apt update`                                                                         |
 | Install necessary apps | `apt install -y sudo ufw docker docker-compose make openbox xinit kitty firefox-esr` |
-| Run GUI                | `startx` > `Right Click` > `Applications`                                            |
-| Open Firefox           | `Internet` > `Firefox ESR`                                                           |
-| Open terminal          | `System` > `kitty`                                                                   |
+| Run GUI                | `startx`                                                                             |
+| Test Firefox           | `Right Click` > `Applications` > `Internet` > `Firefox ESR`                          |
+| Test terminal          | `Right Click` > `Applications` > `System` > `kitty`                                  |
 | Close GUI              | `Right Click` > `Exit`                                                               |
 
 - - - -
@@ -172,7 +172,7 @@
 |                                           |                                                                |
 | ----------------------------------------- | -------------------------------------------------------------- |
 | Edit sshd_config file                     | `nano /etc/ssh/sshd_config`                                    |
-| Change ssh port to 42                     | `#Port 22` to `Port 22` or `Port 42`                           |
+| Change ssh port to 22 or 42               | `#Port 22` to `Port 22` or `Port 42`                           |
 | Enable root login                         | `#PermitRootLogin prohibit-password` to `PermitRootLogin yes`  |
 | Enable password authentication (Optional) | `#PasswordAuthentication yes` to `PasswordAuthentication yes`  |
 | Save and exit sshd_config file            | `Ctrl + X` > `Y` > `Enter`                                     |
@@ -185,14 +185,14 @@
 | Check SSH status  | `service ssh status`       |
 
 #### Configure Firewall
-|                          |                             |
-| ------------------------ | --------------------------- |
-| Check status             | `ufw status` or `ss -tunlp` |
-| Enable ufw               | `ufw enable`                |
-| Open port 42 (ssh)       | `ufw allow 42`              |
-| Open port 80 (http)      | `ufw allow 80`              |
-| Open port 443 (https)    | `ufw allow 443`             |
-| Close virtual machine    | `shutdown now`              |
+|                          |                               |
+| ------------------------ | ----------------------------- |
+| Check status             | `ufw status` or `ss -tunlp`   |
+| Enable ufw               | `ufw enable`                  |
+| Open port 22 or 42 (ssh) | `ufw allow 22` `ufw allow 42` | 
+| Open port 80 (http)      | `ufw allow 80`                |
+| Open port 443 (https)    | `ufw allow 443`               |
+| Close virtual machine    | `shutdown now`                |
 
 #### Port Forwarding
 | Name    | Protocol | Host IP | Host Port | Guest IP | Guest Port |
