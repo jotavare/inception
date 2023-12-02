@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/jotavare/inception/blob/main/banner/banner_github_inception.png">
+  <img src="https://github.com/jotavare/jotavare/blob/main/42/banners/piscine_and_common_core/github_piscine_and_common_core_banner_inception.png">
 </p>
 
 <p align="center">
@@ -16,7 +16,8 @@
     <a href="#port-forwarding">Port Forwarding</a> •
     <a href="#save-the-configuration">Save the Configuration</a> •
     <a href="#pre-configure-docker">Pre-Configure Docker</a> •
-    <a href="#change-domain-and-install-certificates">Change Domain and Install Certificates</a>
+    <a href="#change-domain-and-install-certificates">Change Domain and Install Certificates</a> •
+    <a href="#license">License</a>
 </p>
 
 
@@ -548,3 +549,8 @@ services:
 ```
 
 - - - -
+
+## LICENSE
+<p>
+This work is published under the terms of <a href="https://github.com/jotavare/jotavare/blob/main/LICENSE">42 Unlicense</a>.
+</p>
