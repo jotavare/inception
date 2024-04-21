@@ -24,9 +24,9 @@
 </p>
 
 ## ABOUT
-This project is designed to enhance my understanding of system administration by utilising Docker. I am virtualizing multiple Docker images within my virtual machine. The objective is to establish a streamlined infrastructure incorporating WordPress alongside a LEMP Stack (consisting of Nginx, MariaDB, and PHP) using Docker and Docker-Compose, while ensuring compliance with predefined guidelines specified in the subject document.
+This project is designed to enhance my understanding of system administration by utilising Docker to virtualise multiple images within my virtual machine. The objective is to establish a streamlined infrastructure incorporating WordPress alongside a LEMP Stack (consisting of Nginx, MariaDB, and PHP) using Docker and Docker-Compose while ensuring compliance with predefined guidelines specified in the subject.
 
-Inside this README, you'll find a pseudo-step-by-step guide. 
+In this README, you'll find a pseudo-step-by-step guide. 
 
 - [Subject](https://github.com/jotavare/inception/blob/main/subject/en_subject_inception.pdf) `PDF`
 - [References](https://github.com/jotavare/42-resources?tab=readme-ov-file#05-inception) `GitHub`
