@@ -11,16 +11,17 @@
 </p>
 
 <p align="center">
-    <a href="#about">About</a> •
-    <a href="#download">Download</a> •
-    <a href="#create-a-new-virtual-machine">Create a New Virtual Machine</a> •
-    <a href="#install-debian-os">Install Debian OS</a> •
-    <a href="#install-necessary-software">Install Necessary Software</a> •
-    <a href="#port-forwarding">Port Forwarding</a> •
-    <a href="#save-the-configuration">Save the Configuration</a> •
-    <a href="#pre-configure-docker">Pre-Configure Docker</a> •
-    <a href="#change-domain-and-install-certificates">Change Domain and Install Certificates</a> •
-    <a href="#license">License</a>
+	<a href="#about">About</a> •
+	<a href="#download">Download</a> •
+	<a href="#create-a-new-virtual-machine">Create a New Virtual Machine</a> •
+	<a href="#install-debian-os">Install Debian OS</a> •
+	<a href="#install-necessary-software">Install Necessary Software</a> •
+	<a href="#port-forwarding">Port Forwarding</a> •
+	<a href="#save-the-configuration">Save the Configuration</a> •
+	<a href="#pre-configure-docker">Pre-Configure Docker</a> •
+	<a href="#change-domain-and-install-certificates">Change Domain and Install Certificates</a> •
+	<a href="#contributing">Contributing</a> •
+	<a href="#license">License</a>
 </p>
 
 ## ABOUT
@@ -560,7 +561,10 @@ services:
 
 - - - -
 
+## CONTRIBUTING
+
+If you find any issues or have suggestions for improvements, feel free to fork the repository and open an issue or submit a pull request.
+
 ## LICENSE
-<p>
-This work is published under the terms of <a href="https://github.com/jotavare/jotavare/blob/main/LICENSE">42 Unlicense</a>.
-</p>
+
+This project is available under the MIT License. For further details, please refer to the [LICENSE](https://github.com/jotavare/inception/blob/master/LICENSE) file.
