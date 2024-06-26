@@ -32,13 +32,11 @@ In this README, you'll find a pseudo-step-by-step guide.
 - [Subject](https://github.com/jotavare/inception/blob/main/subject/en_subject_inception.pdf) `PDF`
 - [References](https://github.com/jotavare/42-resources?tab=readme-ov-file#05-inception) `GitHub`
 
-### DOWNLOAD
+## DOWNLOAD
 - [VirtualBox](https://www.virtualbox.org/) `Website`
 - [Debian](https://www.debian.org/) `Website`
 
-- - - -
-
-### CREATE A NEW VIRTUAL MACHINE
+## CREATE A NEW VIRTUAL MACHINE
 #### Name and Operating System
 |                |                                     |
 | -------------- | ----------------------------------- |
@@ -77,7 +75,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 
 - - - -
 
-### INSTALL DEBIAN OS
+## INSTALL DEBIAN OS
 #### Commands
 |         |         |
 | ------- | ------- |
@@ -162,9 +160,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 #### Finish the Installation and Reboot
 - [x] `Continue`
 
-- - - -
-
-### SAVE THE CONFIGURATION
+## SAVE THE CONFIGURATION
 #### Create Snapshot
 - Open the VirtualBox;
 - `Left Click` on top of the right icon of your VM;
@@ -182,9 +178,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 - Copy and uncompress the files inside the folder;
 - Open VirtualBox and everything should appear correctly;
 
-- - - -
-
-### INSTALL NECESSARY SOFTWARE
+## INSTALL NECESSARY SOFTWARE
 |                        |                                                                                      |
 | ---------------------- | ------------------------------------------------------------------------------------ |
 | inception login        | `root`                                                                               |
@@ -199,9 +193,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 > [!TIP]
 > Don't forget to take a snapshot and save it in the cloud.
 
-- - - -
-
-### PORT FORWARDING
+## PORT FORWARDING
 #### Configure SSH
 |                                           |                                                                |
 | ----------------------------------------- | -------------------------------------------------------------- |
@@ -246,9 +238,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 > [!TIP]
 > Don't forget to take a snapshot and save it in the cloud.
 
-- - - -
-
-### PRE CONFIGURE DOCKER
+## PRE CONFIGURE DOCKER
 #### Sudo Configuration
 |                                            |                                                  |
 | ------------------------------------------ | ------------------------------------------------ |
@@ -330,9 +320,7 @@ echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 > [!TIP]
 > Don't forget to take a snapshot and save it in the cloud.
 
-- - - -
-
-### CHANGE DOMAIN AND INSTALL CERTIFICATES
+## CHANGE DOMAIN AND INSTALL CERTIFICATES
 #### Install mkcert
 | Step                                      | Command                                         |
 |-------------------------------------------|-------------------------------------------------|
@@ -423,9 +411,7 @@ server {
 | Open Firefox in VM             | Check the browser for self-signed certificate                     |
 | Type the following URL         | `<intra_user>.42.fr` or `127.0.0.1` or `<vm_ip_adress>`           |
 
-------
-
-### MAKEFILE
+## MAKEFILE
 
 |                                   |                                                                   |
 | --------------------------------- | ----------------------------------------------------------------- |
@@ -465,9 +451,7 @@ fclean:
 .PHONY: all build down re clean clean
 ```
 
-------
-
-### CREATING AN NGINX CONTAINER
+## CREATING AN NGINX CONTAINER
 #### Software Used
 |            |                                        |      |
 | ---------- | -------------------------------------- |----- |
