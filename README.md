@@ -73,8 +73,6 @@ In this README, you'll find a pseudo-step-by-step guide.
 > [!NOTE]
 > If needed, you can add more processor cores to the virtual machine: `Settings` > `System` > `Processor`.
 
-- - - -
-
 ## INSTALL DEBIAN OS
 #### Commands
 |         |         |
@@ -542,8 +540,6 @@ services:
       - /home/${USER}/simple_docker_nginx_html/public/html:/var/www/
     restart: always
 ```
-
-- - - -
 
 ## CONTRIBUTING
 
