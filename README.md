@@ -11,16 +11,17 @@
 </p>
 
 <p align="center">
-    <a href="#about">About</a> •
-    <a href="#download">Download</a> •
-    <a href="#create-a-new-virtual-machine">Create a New Virtual Machine</a> •
-    <a href="#install-debian-os">Install Debian OS</a> •
-    <a href="#install-necessary-software">Install Necessary Software</a> •
-    <a href="#port-forwarding">Port Forwarding</a> •
-    <a href="#save-the-configuration">Save the Configuration</a> •
-    <a href="#pre-configure-docker">Pre-Configure Docker</a> •
-    <a href="#change-domain-and-install-certificates">Change Domain and Install Certificates</a> •
-    <a href="#license">License</a>
+	<a href="#about">About</a> •
+	<a href="#download">Download</a> •
+	<a href="#create-a-new-virtual-machine">Create a New Virtual Machine</a> •
+	<a href="#install-debian-os">Install Debian OS</a> •
+	<a href="#install-necessary-software">Install Necessary Software</a> •
+	<a href="#port-forwarding">Port Forwarding</a> •
+	<a href="#save-the-configuration">Save the Configuration</a> •
+	<a href="#pre-configure-docker">Pre-Configure Docker</a> •
+	<a href="#change-domain-and-install-certificates">Change Domain and Install Certificates</a> •
+	<a href="#contributing">Contributing</a> •
+	<a href="#license">License</a>
 </p>
 
 ## ABOUT
@@ -31,13 +32,11 @@ In this README, you'll find a pseudo-step-by-step guide.
 - [Subject](https://github.com/jotavare/inception/blob/main/subject/en_subject_inception.pdf) `PDF`
 - [References](https://github.com/jotavare/42-resources?tab=readme-ov-file#05-inception) `GitHub`
 
-### DOWNLOAD
+## DOWNLOAD
 - [VirtualBox](https://www.virtualbox.org/) `Website`
 - [Debian](https://www.debian.org/) `Website`
 
-- - - -
-
-### CREATE A NEW VIRTUAL MACHINE
+## CREATE A NEW VIRTUAL MACHINE
 #### Name and Operating System
 |                |                                     |
 | -------------- | ----------------------------------- |
@@ -74,9 +73,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 > [!NOTE]
 > If needed, you can add more processor cores to the virtual machine: `Settings` > `System` > `Processor`.
 
-- - - -
-
-### INSTALL DEBIAN OS
+## INSTALL DEBIAN OS
 #### Commands
 |         |         |
 | ------- | ------- |
@@ -161,9 +158,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 #### Finish the Installation and Reboot
 - [x] `Continue`
 
-- - - -
-
-### SAVE THE CONFIGURATION
+## SAVE THE CONFIGURATION
 #### Create Snapshot
 - Open the VirtualBox;
 - `Left Click` on top of the right icon of your VM;
@@ -181,9 +176,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 - Copy and uncompress the files inside the folder;
 - Open VirtualBox and everything should appear correctly;
 
-- - - -
-
-### INSTALL NECESSARY SOFTWARE
+## INSTALL NECESSARY SOFTWARE
 |                        |                                                                                      |
 | ---------------------- | ------------------------------------------------------------------------------------ |
 | inception login        | `root`                                                                               |
@@ -198,9 +191,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 > [!TIP]
 > Don't forget to take a snapshot and save it in the cloud.
 
-- - - -
-
-### PORT FORWARDING
+## PORT FORWARDING
 #### Configure SSH
 |                                           |                                                                |
 | ----------------------------------------- | -------------------------------------------------------------- |
@@ -245,9 +236,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 > [!TIP]
 > Don't forget to take a snapshot and save it in the cloud.
 
-- - - -
-
-### PRE CONFIGURE DOCKER
+## PRE CONFIGURE DOCKER
 #### Sudo Configuration
 |                                            |                                                  |
 | ------------------------------------------ | ------------------------------------------------ |
@@ -329,9 +318,7 @@ echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 > [!TIP]
 > Don't forget to take a snapshot and save it in the cloud.
 
-- - - -
-
-### CHANGE DOMAIN AND INSTALL CERTIFICATES
+## CHANGE DOMAIN AND INSTALL CERTIFICATES
 #### Install mkcert
 | Step                                      | Command                                         |
 |-------------------------------------------|-------------------------------------------------|
@@ -422,9 +409,7 @@ server {
 | Open Firefox in VM             | Check the browser for self-signed certificate                     |
 | Type the following URL         | `<intra_user>.42.fr` or `127.0.0.1` or `<vm_ip_adress>`           |
 
-------
-
-### MAKEFILE
+## MAKEFILE
 
 |                                   |                                                                   |
 | --------------------------------- | ----------------------------------------------------------------- |
@@ -464,9 +449,7 @@ fclean:
 .PHONY: all build down re clean clean
 ```
 
-------
-
-### CREATING AN NGINX CONTAINER
+## CREATING AN NGINX CONTAINER
 #### Software Used
 |            |                                        |      |
 | ---------- | -------------------------------------- |----- |
@@ -558,9 +541,10 @@ services:
     restart: always
 ```
 
-- - - -
+## CONTRIBUTING
+
+If you find any issues or have suggestions for improvements, feel free to fork the repository and open an issue or submit a pull request.
 
 ## LICENSE
-<p>
-This work is published under the terms of <a href="https://github.com/jotavare/jotavare/blob/main/LICENSE">42 Unlicense</a>.
-</p>
+
+This project is available under the MIT License. For further details, please refer to the [LICENSE](https://github.com/jotavare/inception/blob/master/LICENSE) file.
