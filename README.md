@@ -27,9 +27,8 @@
 ## ABOUT
 This project is designed to enhance my understanding of system administration by utilising Docker to virtualise multiple images within my virtual machine. The objective is to establish a streamlined infrastructure incorporating WordPress alongside a LEMP Stack (consisting of Nginx, MariaDB, and PHP) using Docker and Docker-Compose while ensuring compliance with predefined guidelines specified in the subject.
 
-In this README, you'll find a pseudo-step-by-step guide. 
+In this README, you'll find a pseudo-step-by-step guide.
 
-- [Subject](https://github.com/jotavare/inception/blob/main/subject/en_subject_inception.pdf) `PDF`
 - [References](https://github.com/jotavare/42-resources?tab=readme-ov-file#05-inception) `GitHub`
 
 ## DOWNLOAD
@@ -213,7 +212,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 | ------------------------ | -------------------------------- |
 | Check status             | `ufw status`                     |
 | Enable ufw               | `ufw enable`                     |
-| Open port 4242 (ssh)     | `ufw allow 4242`                 | 
+| Open port 4242 (ssh)     | `ufw allow 4242`                 |
 | Open port 80 (http)      | `ufw allow 80`                   |
 | Open port 443 (https)    | `ufw allow 443`                  |
 | Close virtual machine    | `shutdown now`                   |
@@ -256,7 +255,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 | Switch user                       | `su <intra_user>`                                                       |
 | Go to home directory              | `cd ~/`                                                                 |
 | Download Docker sample            | `git clone https://github.com/codesshaman/simple_docker_nginx_html.git` |
-| Change directory and build Docker | `cd simple_docker_nginx_html/ && docker-compose up -d && cd ~/`         |  
+| Change directory and build Docker | `cd simple_docker_nginx_html/ && docker-compose up -d && cd ~/`         |
 | Open browser and write in the URL | `172.0.0.1` (NAT) or `<vm_ip_adress>` (Bridged Adapter)                 |
 | Verify website                    | It should display `My html config is work!`                             |
 
