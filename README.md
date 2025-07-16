@@ -29,8 +29,6 @@ This project is designed to enhance my understanding of system administration by
 
 In this README, you'll find a pseudo-step-by-step guide.
 
-- [References](https://github.com/jotavare/42-resources?tab=readme-ov-file#05-inception) `GitHub`
-
 ## DOWNLOAD
 - [VirtualBox](https://www.virtualbox.org/) `Website`
 - [Debian](https://www.debian.org/) `Website`
