@@ -3,10 +3,10 @@
 </p>
 
 <p align="center">
-	<img src="https://img.shields.io/badge/status-in%20progress-yellow?style=flat-square"/>
+	<img src="https://img.shields.io/badge/status-finished-success?color=%2312bab9&style=flat-square"/>
 	<img src="https://img.shields.io/github/languages/top/jotavare/inception?color=%2312bab9&style=flat-square" />
 	<img src="https://img.shields.io/github/last-commit/jotavare/inception?color=%2312bab9&style=flat-square"/>
-	<a href='https://www.linkedin.com/in/joaoptoliveira' target="_blank"><img alt='Linkedin' src='https://img.shields.io/badge/LinkedIn-100000?style=flat-square&logo=Linkedin&logoColor=white&labelColor=0A66C2&color=0A66C2'/></a>
+	<a href='https://www.linkedin.com/in/jotavare' target="_blank"><img alt='Linkedin' src='https://img.shields.io/badge/LinkedIn-blue?style=flat-square'/></a>
 	<a href='https://profile.intra.42.fr/users/jotavare' target="_blank"><img alt='42' src='https://img.shields.io/badge/Porto-100000?style=flat-square&logo=42&logoColor=white&labelColor=000000&color=000000'/></a>
 </p>
 
@@ -20,6 +20,8 @@
 	<a href="#save-the-configuration">Save the Configuration</a> •
 	<a href="#pre-configure-docker">Pre-Configure Docker</a> •
 	<a href="#change-domain-and-install-certificates">Change Domain and Install Certificates</a> •
+	<a href="#makefile">Makefile</a> •
+	<a href="#creating-an-nginx-container">Creating an Nginx Container</a> •
 	<a href="#contributing">Contributing</a> •
 	<a href="#license">License</a>
 </p>
@@ -27,10 +29,10 @@
 ## ABOUT
 This project is designed to enhance my understanding of system administration by utilising Docker to virtualise multiple images within my virtual machine. The objective is to establish a streamlined infrastructure incorporating WordPress alongside a LEMP Stack (consisting of Nginx, MariaDB, and PHP) using Docker and Docker-Compose while ensuring compliance with predefined guidelines specified in the subject.
 
-In this README, you'll find a pseudo-step-by-step guide. 
+In this README, you'll find a pseudo-step-by-step guide.
 
-- [Subject](https://github.com/jotavare/inception/blob/main/subject/en_subject_inception.pdf) `PDF`
-- [References](https://github.com/jotavare/42-resources?tab=readme-ov-file#05-inception) `GitHub`
+> [!NOTE]
+> For the rest of the projects and exams in the cursus, <a href="https://github.com/jotavare/42-common-core">click here</a>.
 
 ## DOWNLOAD
 - [VirtualBox](https://www.virtualbox.org/) `Website`
@@ -213,7 +215,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 | ------------------------ | -------------------------------- |
 | Check status             | `ufw status`                     |
 | Enable ufw               | `ufw enable`                     |
-| Open port 4242 (ssh)     | `ufw allow 4242`                 | 
+| Open port 4242 (ssh)     | `ufw allow 4242`                 |
 | Open port 80 (http)      | `ufw allow 80`                   |
 | Open port 443 (https)    | `ufw allow 443`                  |
 | Close virtual machine    | `shutdown now`                   |
@@ -229,7 +231,7 @@ In this README, you'll find a pseudo-step-by-step guide.
 |                                        |                                      |
 | -------------------------------------- | ------------------------------------ |
 | Start VM and login with ssh on host pc | `ssh root@localhost -p 4242`         |
-| Check the ip adress                    | `ip a` or `hostname -I`              |
+| Check the ip address                    | `ip a` or `hostname -I`              |
 | Check for known ssh hosts              | `cat ~/.ssh/known_hosts`             |
 | Display socket information             | `ss -tunlp`                          |
 
@@ -256,15 +258,15 @@ In this README, you'll find a pseudo-step-by-step guide.
 | Switch user                       | `su <intra_user>`                                                       |
 | Go to home directory              | `cd ~/`                                                                 |
 | Download Docker sample            | `git clone https://github.com/codesshaman/simple_docker_nginx_html.git` |
-| Change directory and build Docker | `cd simple_docker_nginx_html/ && docker-compose up -d && cd ~/`         |  
-| Open browser and write in the URL | `172.0.0.1` (NAT) or `<vm_ip_adress>` (Bridged Adapter)                 |
+| Change directory and build Docker | `cd simple_docker_nginx_html/ && docker-compose up -d && cd ~/`         |
+| Open browser and write in the URL | `127.0.0.1` (NAT) or `<vm_ip_address>` (Bridged Adapter)                 |
 | Verify website                    | It should display `My html config is work!`                             |
 
 #### Create Project Directories and Files
 |                                  |                                                  |
 | -------------------------------- | ------------------------------------------------ |
 | Create .sh file                  | `nano make_inception.sh`                         |
-| Copy and past the bash code      | *(Paste the provided bash code bellow)*          |
+| Copy and past the bash code      | *(Paste the provided bash code below)*          |
 | Save and exit                    | `Ctrl + X` > `Y` > `Enter`                       |
 | Give permissions to file         | `chmod 777 make_inception.sh`                    |
 | Run .sh file                     | `./make_inception.sh`                            |
@@ -324,7 +326,7 @@ echo ".env" >> project/srcs/requirements/wordpress/.dockerignore
 |-------------------------------------------|-------------------------------------------------|
 | Update list of repositories               | `sudo apt update -y`                            |
 | Install utilities for mkcert              | `sudo apt install -y wget curl libnss3-tools`   |
-| Download mkcert binary                    | *(Copy and paste the command bellow)*           |
+| Download mkcert binary                    | *(Copy and paste the command below)*           |
 | Rename the binary                         | `mv mkcert-v*-linux-amd64 mkcert`               |
 | Give all permissions                      | `chmod 777 mkcert`                              |
 | Move mkcert to bin directory              | `sudo mv mkcert /usr/local/bin/`                |
@@ -357,7 +359,7 @@ curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest| grep br
 |                                |                                                           |
 | ------------------------------ | --------------------------------------------------------- |
 | Edit NGINX configuration       | `nano ~/simple_docker_nginx_html/nginx/conf.d/nginx.conf` |
-| Paste configuration code       | *(Copy and paste the provided configuration code bellow)* |
+| Paste configuration code       | *(Copy and paste the provided configuration code below)* |
 
 > [!WARNING]
 > Change `<intra_user>` to your username. There are three instances. `CTRL + \` to search and replace.
@@ -407,14 +409,14 @@ server {
 | Start Docker                   | `cd ~/simple_docker_nginx_html/ && docker-compose up -d && cd ~/` |
 | Start GUI                      | `sudo startx`                                                     |
 | Open Firefox in VM             | Check the browser for self-signed certificate                     |
-| Type the following URL         | `<intra_user>.42.fr` or `127.0.0.1` or `<vm_ip_adress>`           |
+| Type the following URL         | `<intra_user>.42.fr` or `127.0.0.1` or `<vm_ip_address>`           |
 
 ## MAKEFILE
 
 |                                   |                                                                   |
 | --------------------------------- | ----------------------------------------------------------------- |
 | Create Makefile                   | `nano ~/simple_docker_nginx_html/Makefile`                        |
-| Copy and paste the Makefile rules | *(Copy and paste the provided configuration code bellow)*         |
+| Copy and paste the Makefile rules | *(Copy and paste the provided configuration code below)*         |
 
 ```bash
 name = simple_nginx_html
@@ -446,7 +448,7 @@ fclean:
         @docker network prune --force
         @docker volume prune --force
 
-.PHONY: all build down re clean clean
+.PHONY: all build down re clean fclean
 ```
 
 ## CREATING AN NGINX CONTAINER
@@ -543,8 +545,8 @@ services:
 
 ## CONTRIBUTING
 
-If you find any issues or have suggestions for improvements, feel free to fork the repository and open an issue or submit a pull request.
+This repository holds finished coursework and is not open to changes.
 
 ## LICENSE
 
-This project is available under the MIT License. For further details, please refer to the [LICENSE](https://github.com/jotavare/inception/blob/master/LICENSE) file.
+This project is available under the MIT License. For further details, please refer to the [LICENSE](https://github.com/jotavare/inception/blob/main/LICENSE) file.

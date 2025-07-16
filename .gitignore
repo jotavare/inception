@@ -1,0 +1,20 @@
+# Build and editor output.
+*.out
+*.swp
+*~
+.DS_Store
+._*
+Thumbs.db
+.vscode/
+.idea/
+
+# Subject PDFs are 42's, not ours to redistribute.
+*.pdf
+
+# Never commit credentials or certificates. This project's setup generates
+# an .env and mkcert keys; neither belongs in the repository.
+.env
+.env.*
+*.pem
+*.key
+*.crt
