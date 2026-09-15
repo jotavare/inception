@@ -545,7 +545,7 @@ services:
 
 ## CONTRIBUTING
 
-This repository holds finished coursework and is not open to changes.
+This repository is finished and not open to changes.
 
 ## LICENSE
 
