@@ -3,27 +3,8 @@
 </p>
 
 <p align="center">
-	<img src="https://img.shields.io/badge/status-finished-success?color=%2312bab9&style=flat-square"/>
-	<img src="https://img.shields.io/github/languages/top/jotavare/inception?color=%2312bab9&style=flat-square" />
-	<img src="https://img.shields.io/github/last-commit/jotavare/inception?color=%2312bab9&style=flat-square"/>
-	<a href='https://www.linkedin.com/in/jotavare' target="_blank"><img alt='Linkedin' src='https://img.shields.io/badge/LinkedIn-blue?style=flat-square'/></a>
+	<a href='https://www.linkedin.com/in/jotavare' target="_blank"><img alt='Linkedin' src='https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=data:image/svg%2bxml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMjAuNDQ3IDIwLjQ1MmgtMy41NTR2LTUuNTY5YzAtMS4zMjgtLjAyNy0zLjAzNy0xLjg1Mi0zLjAzNy0xLjg1MyAwLTIuMTM2IDEuNDQ1LTIuMTM2IDIuOTM5djUuNjY3SDkuMzUxVjloMy40MTR2MS41NjFoLjA0NmMuNDc3LS45IDEuNjM3LTEuODUgMy4zNy0xLjg1IDMuNjAxIDAgNC4yNjcgMi4zNyA0LjI2NyA1LjQ1NXY2LjI4NnpNNS4zMzcgNy40MzNjLTEuMTQ0IDAtMi4wNjMtLjkyNi0yLjA2My0yLjA2NSAwLTEuMTM4LjkyLTIuMDYzIDIuMDYzLTIuMDYzIDEuMTQgMCAyLjA2NC45MjUgMi4wNjQgMi4wNjMgMCAxLjEzOS0uOTI1IDIuMDY1LTIuMDY0IDIuMDY1em0xLjc4MiAxMy4wMTlIMy41NTVWOWgzLjU2NHYxMS40NTJ6TTIyLjIyNSAwSDEuNzcxQy43OTIgMCAwIC43NzQgMCAxLjcyOXYyMC41NDJDMCAyMy4yMjcuNzkyIDI0IDEuNzcxIDI0aDIwLjQ1MUMyMy4yIDI0IDI0IDIzLjIyNyAyNCAyMi4yNzFWMS43MjlDMjQgLjc3NCAyMy4yIDAgMjIuMjIyIDBoLjAwM3oiLz48L3N2Zz4K&logoColor=white'/></a>
 	<a href='https://profile.intra.42.fr/users/jotavare' target="_blank"><img alt='42' src='https://img.shields.io/badge/Porto-100000?style=flat-square&logo=42&logoColor=white&labelColor=000000&color=000000'/></a>
-</p>
-
-<p align="center">
-	<a href="#about">About</a> •
-	<a href="#download">Download</a> •
-	<a href="#create-a-new-virtual-machine">Create a New Virtual Machine</a> •
-	<a href="#install-debian-os">Install Debian OS</a> •
-	<a href="#install-necessary-software">Install Necessary Software</a> •
-	<a href="#port-forwarding">Port Forwarding</a> •
-	<a href="#save-the-configuration">Save the Configuration</a> •
-	<a href="#pre-configure-docker">Pre-Configure Docker</a> •
-	<a href="#change-domain-and-install-certificates">Change Domain and Install Certificates</a> •
-	<a href="#makefile">Makefile</a> •
-	<a href="#creating-an-nginx-container">Creating an Nginx Container</a> •
-	<a href="#contributing">Contributing</a> •
-	<a href="#license">License</a>
 </p>
 
 ## ABOUT
@@ -542,11 +523,3 @@ services:
       - /home/${USER}/simple_docker_nginx_html/public/html:/var/www/
     restart: always
 ```
-
-## CONTRIBUTING
-
-This repository is finished and not open to changes.
-
-## LICENSE
-
-This project is available under the MIT License. For further details, please refer to the [LICENSE](https://github.com/jotavare/inception/blob/main/LICENSE) file.
